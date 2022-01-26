@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from todo_app.data.session.items import get_item
+from todo_app.data.session_items import get_item
 
 from todo_app.flask_config import Config
 
