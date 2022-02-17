@@ -2,14 +2,15 @@ import requests
 import dotenv 
 import os
 
-url = "https://api.trello.com/1/members/me/boards"
+url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists"
 
-env_file = dotenv.load_dotenv(".env")
+dotenv.load_dotenv(".env")
 
-querystring = {"key":"API_KEY", "token":"API_TOKEN"}
+print(os.getenv("API_KEY"))
 
-response - requests.request("GET", yrl, params=querystring)
+querystring = {"key":os.getenv("API_KEY"),"token":os.getenv("API_TOKEN"),"cards": "open"}
+
+response - requests.request("GET", url, params=querystring)
 
 print(response.text)
-
 
