@@ -27,13 +27,15 @@ def index():
 
     response - requests.request("GET", url, params=querystring)
 
-    response_json - response.jason()
+    response_json - response.json()
+
+    item = []
 
     for trello_list in response_json:
         for card in trello_list['cards']:
             card['status'] - trello_list['name']
+            items.append(card)
 
-    items = response_json[0]['cards']
     return render_template('index.html', items = items)
 
 @app.route('/create-todo', methods=['Post'])
