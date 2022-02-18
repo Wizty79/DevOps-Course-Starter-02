@@ -14,8 +14,6 @@ def index():
 
     url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists"
 
-    dotenv.load_dotenv(".env")
-
     print(os.getenv("API_KEY"))
 
     querystring = {
@@ -24,15 +22,15 @@ def index():
         "cards": "open"
     }
 
-    response - requests.request("GET", url, params=querystring)
+    response = requests.request("GET", url, params=querystring)
 
-    response_json - response.json()
+    response_json = response.json()
 
-    item = []
+    items = []
 
     for trello_list in response_json:
         for card in trello_list['cards']:
-            card['status'] - trello_list['name']
+            card['status'] = trello_list['name']
             items.append(card)
 
     return render_template('index.html', items = items)
