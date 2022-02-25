@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from todo_app.data.session_items import add_item, get_items
+from todo_app.data.session_items import add_item, get_items #can remove session_items??
 
 from todo_app.flask_config import Config
 import requests 
@@ -12,7 +12,7 @@ app.config.from_object(Config())
 @app.route('/')
 def index():
 
-    url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists"
+    url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists" #should replace board id? 
 
     print(os.getenv("API_KEY"))
 
@@ -58,7 +58,7 @@ def create_new_todo():
 @app.route('/update_status', methods=['POST'])
 def update_status():
     
-    url = "https://api.trello.com/1/cards/620fb34b5249af284c99edc7" #change ID to link to html button? Maybe? take input from button?
+    url = "https://api.trello.com/1/cards/620fb34b5249af284c99edc7" #add new pram to querysatring? id_todo_cards? take input from button?
 
     querystring = {
             "key":os.getenv("API_KEY"),
@@ -66,6 +66,6 @@ def update_status():
             "idList":os.getenv("TRELLO_DONE_LIST_ID")
         }
 
-    response = requests.request("PUT", url, params=querystring)
+    response = requests.request("PUT", url, params=querystring) # change PUT to POST?
 
     print(response.text)
