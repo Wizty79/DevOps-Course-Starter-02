@@ -59,7 +59,7 @@ def create_new_todo():
 def update_status():
     
 
-    url = "https://api.trello.com/1/cards/620fb34b5249af284c99edc7"
+    url = "https://api.trello.com/1/cards/620fb34b5249af284c99edc7" #change ID to link to html button? Maybe? take input from button?
 
     querystring = {
             "key":os.getenv("API_KEY"),
