@@ -68,6 +68,6 @@ def update_status():
             "idList":os.getenv("TRELLO_DONE_LIST_ID")
         }
 
-    response = requests.request("PUT", url, params=querystring) # change PUT to POST?
+    response = requests.request("PUT", url, params=querystring) 
 
     return index()
