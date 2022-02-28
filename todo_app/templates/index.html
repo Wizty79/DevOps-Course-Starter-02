@@ -25,13 +25,13 @@
           <li>{{ item.name }} - {{ item.status}}</li>
           <form action="/update_status" method="Post" class="form-example">
             <div class="form-example">
-              <lable for="name"> Todo Id: </lable>
               <p hidden>
+                <lable for="name"> Todo Id: </lable>
                 <input type="text" name="todo-id" value="{{ item.id }}" required>
               </p>
             </div>
             <div class="form-example">
-              <input type="submit" value="Complete">
+              <input type="submit" class="btn btn-success" value="Complete">
             </div>
           </form> 
         {% endfor %}
