@@ -58,7 +58,9 @@ def create_new_todo():
 @app.route('/update_status', methods=['POST'])
 def update_status():
     
-    url = "https://api.trello.com/1/cards/620fb34b5249af284c99edc7" #add new pram to querysatring? id_todo_cards? take input from button?
+    card_id = request.form['todo-id']
+
+    url = f"https://api.trello.com/1/cards/{card_id}"  
 
     querystring = {
             "key":os.getenv("API_KEY"),
@@ -68,4 +70,4 @@ def update_status():
 
     response = requests.request("PUT", url, params=querystring) # change PUT to POST?
 
-    print(response.text)
+    return index()
