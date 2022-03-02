@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-from todo_app.data.session_items import add_item, get_items 
 
 from todo_app.flask_config import Config
 import requests 
 import os
 from todo_app.data.item import Item
+import todo_app.data.trello_items as trello_items
 
 app = Flask(__name__)
 app.config.from_object(Config())
@@ -12,20 +12,7 @@ app.config.from_object(Config())
 
 @app.route('/')
 def index():
-
-    url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists" 
-
-    print(os.getenv("API_KEY"))
-
-    querystring = {
-        "key":os.getenv("API_KEY"),
-        "token":os.getenv("API_TOKEN"),
-        "cards": "open"
-    }
-
-    response = requests.request("GET", url, params=querystring)
-
-    response_json = response.json()
+    response_json = trello_items.get_trello_cards()
 
     items = []
 
