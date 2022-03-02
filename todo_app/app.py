@@ -4,6 +4,7 @@ from todo_app.data.session_items import add_item, get_items
 from todo_app.flask_config import Config
 import requests 
 import os
+from todo_app.data.item import Item
 
 app = Flask(__name__)
 app.config.from_object(Config())
@@ -30,8 +31,8 @@ def index():
 
     for trello_list in response_json:
         for card in trello_list['cards']:
-            card['status'] = trello_list['name']
-            items.append(card)
+            item = Item.from_trello_card(card, trello_list)
+            items.append(item)
 
     return render_template('index.html', items = items)
 

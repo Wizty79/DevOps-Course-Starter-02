@@ -22,7 +22,7 @@
       <h2>Items</h2>
       <ul class="list-group mb-4">
         {% for item in items %}
-          <li>{{ item.name }} - {{ item.status}}</li>
+          <li>{{ item.title }} - {{ item.status}}</li>
           <form action="/update_status" method="Post" class="form-example">
             <div class="form-example">
               <p hidden>
