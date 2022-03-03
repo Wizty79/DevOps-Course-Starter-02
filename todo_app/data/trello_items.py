@@ -17,3 +17,21 @@ def get_trello_cards():
     response_json = response.json()
 
     return response_json
+
+
+def create_todo:
+	url = "https://api.trello.com/1/cards"
+	
+	querystring = {
+        "key":os.getenv("API_KEY"),
+        "token":os.getenv("API_TOKEN"),
+        "idList":os.getenv("TRELLO_TODO_LIST_ID"),
+        "name": new_todo_title
+    }
+
+	response = requests.request("POST", url, params=querystring)
+
+    print(response.text)
+
+    return = #?? 
+    
