@@ -19,7 +19,7 @@ def get_trello_cards():
     return response_json
 
 
-def create_todo:
+def create_todo():
 	url = "https://api.trello.com/1/cards"
 	
 	querystring = {
@@ -33,5 +33,4 @@ def create_todo:
 
     print(response.text)
 
-    return = #?? 
-    
+    return = #?????? not needed? 
