@@ -1,3 +1,5 @@
+from flask import Flask, render_template, request
+
 import requests
 import os
 
@@ -21,14 +23,15 @@ def get_trello_cards():
 
 def create_todo():
 	url = "https://api.trello.com/1/cards"
-	
+	new_todo_title = request.form['todo-name']
+
 	querystring = {
         "key":os.getenv("API_KEY"),
         "token":os.getenv("API_TOKEN"),
         "idList":os.getenv("TRELLO_TODO_LIST_ID"),
         "name": new_todo_title
     }
-
+    
 	response = requests.request("POST", url, params=querystring)
 
-    
+    print(response.text)

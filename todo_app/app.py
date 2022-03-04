@@ -26,12 +26,9 @@ def index():
 
 @app.route('/create-todo', methods=['Post'])
 def create_new_todo():
-    new_todo_title = request.form['todo-name']
-
-    response = trello_items.create_todo()
     
-    print(response.text)
-
+    response = trello_items.create_todo()
+        
     return index()
 
 
