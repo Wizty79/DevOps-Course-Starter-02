@@ -31,6 +31,4 @@ def create_todo():
 
 	response = requests.request("POST", url, params=querystring)
 
-    print(response.text)
-
-    return = #??? 
+    
