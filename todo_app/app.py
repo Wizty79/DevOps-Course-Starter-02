@@ -28,20 +28,12 @@ def index():
 def create_new_todo():
     new_todo_title = request.form['todo-name']
 
-    url = "https://api.trello.com/1/cards"
-
-    querystring = {
-        "key":os.getenv("API_KEY"),
-        "token":os.getenv("API_TOKEN"),
-        "idList":os.getenv("TRELLO_TODO_LIST_ID"),
-        "name": new_todo_title
-    }
-
-    response = requests.request("POST", url, params=querystring)
-
+    response = trello_items.create_todo()
+    
     print(response.text)
 
     return index()
+
 
 @app.route('/update_status', methods=['POST'])
 def update_status():
