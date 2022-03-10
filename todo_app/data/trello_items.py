@@ -35,3 +35,17 @@ def create_todo():
 	response = requests.request("POST", url, params=querystring)
 
     
+def change_status():
+    
+    card_id = request.form['todo-id']
+	    
+    url = f"https://api.trello.com/1/cards/{card_id}"
+	
+    
+    querystring = {
+            "key":os.getenv("API_KEY"),
+            "token":os.getenv("API_TOKEN"),
+            "idList":os.getenv("TRELLO_DONE_LIST_ID")
+        }
+
+    response = requests.request("PUT", url, params=querystring) 

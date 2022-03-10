@@ -34,17 +34,7 @@ def create_new_todo():
 
 @app.route('/update_status', methods=['POST'])
 def update_status():
-    
-    card_id = request.form['todo-id']
-
-    url = f"https://api.trello.com/1/cards/{card_id}"  
-
-    querystring = {
-            "key":os.getenv("API_KEY"),
-            "token":os.getenv("API_TOKEN"),
-            "idList":os.getenv("TRELLO_DONE_LIST_ID")
-        }
-
-    response = requests.request("PUT", url, params=querystring) 
+        
+    response = trello_items.change_status()
 
     return index()
