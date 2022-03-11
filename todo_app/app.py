@@ -5,6 +5,7 @@ import requests
 import os
 from todo_app.data.item import Item
 import todo_app.data.trello_items as trello_items
+from todo_app.data.item import ViewModel
 
 app = Flask(__name__)
 app.config.from_object(Config())
@@ -16,12 +17,14 @@ def index():
 
     items = []
 
+    item_view_model = ViewModel(items)
+
     for trello_list in response_json:
         for card in trello_list['cards']:
             item = Item.from_trello_card(card, trello_list)
             items.append(item)
 
-    return render_template('index.html', items = items)
+    return render_template('index.html', view_model=item_view_model)
 
 
 @app.route('/create-todo', methods=['Post'])
