@@ -5,7 +5,7 @@ import requests
 import os
 from todo_app.data.item import Item
 import todo_app.data.trello_items as trello_items
-from todo_app.data.item import ViewModel
+from todo_app.data.view_model import ViewModel
 
 app = Flask(__name__)
 app.config.from_object(Config())
