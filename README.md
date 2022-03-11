@@ -44,9 +44,10 @@ The `.env` file is used by flask to set environment variables when running `flas
 
  * Get your Trello API key and generate a API Token as well. 
 
- * Get the To-Do and Do list ID's, one way of doing this would be to use a service like Postman or Hoppscotch to make API requests.  
+ * Get the To-Do and Do list ID's,as well as the board id, one way of doing this would be to use a service like Postman or Hoppscotch to make API requests.  
 
- * Add the Trello API key, token and list ID's as variables in the .env file. Note if using a virtual machine like Gitpod exclusively, you will have to re-add these variables to the .env file at the start of every new session as you will have no local copy of the code and the file will not be committed to the repo due to security reasons.
+ * Add the Trello API key, token, board and list ID's as variables in the .env file. they should be named as followes: API_KEY, API_TOKEN, BOARD_ID, TRELLO_TODO_LIST_ID, and TRELLO_DONE_LIST_ID. 
+ Note if using a virtual machine like Gitpod exclusively, you will have to re-add these variables to the .env file at the start of every new session as you will have no local copy of the code and the file will not be committed to the repo due to security reasons. (the .env files it added to the .gitignore file).
 
 ## Running the App
 
