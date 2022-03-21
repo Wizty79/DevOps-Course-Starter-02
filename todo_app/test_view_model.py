@@ -5,7 +5,7 @@ from todo_app.data.item import Item
 # - Status, if Todo keep, if not Todo throw away
 
 
-def test_todo_items_property_only_shows_doing_items_and_not_anything_else():
+def test_todo_items_property_only_shows_todo_items_and_not_anything_else():
     #Arrange -  Create an instance of ViewModel containing some example Item objects with various statuses
     items = [
         Item("1", "A Test Todo", "To Do"),
