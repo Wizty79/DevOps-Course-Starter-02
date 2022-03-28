@@ -44,6 +44,6 @@ def test_done_items_property_only_shows_done_items_and_not_anything_else():
 
     todo_item = test_done_items[0]
 
-    assert todo_item.id == "1"
-    assert todo_item.title == "A Test Todo"
-    assert todo_item.status == "To Do"
+    assert todo_item.id == "3" 
+    assert todo_item.title == "A completed Todo"
+    assert todo_item.status == "Done"
