@@ -10,10 +10,11 @@ class ViewModel:
 	def todo_items(self): 
         
     	todo_list_items = []
+		self.status from items = status = self.status#? or status = self.status
                 
     	for item in self.items: 
             if status == 'To Do':
-	            print (todo_list_items.append(item)) 
+	    	todo_list_items.append(item)#? 
             
     	return todo_list_items
 	
