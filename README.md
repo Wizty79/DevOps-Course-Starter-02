@@ -67,3 +67,11 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+## Testing the App
+
+If you are experiecing issue with the App after making your own changes, you'll find to unit tests are ready to run to test the View_model class is sorting the items as intended. 
+If not already install, you'll need pytest, you can do this by running the command(please not if your using a virtual machine you may need to install this every time you start a new session):
+```bash
+$ pip install pytest 
+```
