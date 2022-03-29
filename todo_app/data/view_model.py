@@ -18,4 +18,11 @@ class ViewModel:
 
     @property
     def done_items(self): 
-        return []
+        done_list_items = []
+                
+        for item in self.items: 
+            if item.status == 'Done':
+                done_list_items.append(item)
+            
+        return done_list_items
+        
