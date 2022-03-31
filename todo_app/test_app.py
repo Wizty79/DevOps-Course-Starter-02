@@ -30,18 +30,13 @@ def client():
         def json(self):
             return self.fake_response_data
 
-    def get_lists_stub(url, params):
-        test_board_id = os.environ.get('TRELLO_BOARD_ID')
-        fake_response_data = None
-        if url == f'https://api.trello.com/1/boards/{test_board_id}/lists':
-            fake_response_data = [{
-                'id': '123abc',
-                 'name': 'To Do',
-                 'cards': [{'id': '456', 'name': 'Test card'}]
-            }]
-        return StubResponse(fake_response_data)
- 
- 
- 
- 
- 
+        def get_lists_stub(url, params):
+            test_board_id = os.environ.get('TRELLO_BOARD_ID')
+            fake_response_data = None
+            if url == f'https://api.trello.com/1/boards/{test_board_id}/lists':
+                fake_response_data = [{
+                    'id': '123abc',
+                    'name': 'To Do',
+                    'cards': [{'id': '456', 'name': 'Test card'}]
+                }]
+            return StubResponse(fake_response_data)
