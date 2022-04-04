@@ -40,3 +40,4 @@ def client():
                     'cards': [{'id': '456', 'name': 'Test card'}]
                 }]
             return StubResponse(fake_response_data)
+
