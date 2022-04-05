@@ -4,6 +4,9 @@ import pytest, requests, os
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
 
+assert response.status_code == 200
+assert 'Test card' in response.data.decode()
+
 @pytest.fixture
 def client():
     # Use our test integration config instead of the 'real' version
