@@ -4,9 +4,6 @@ import pytest, requests, os
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
 
-assert response.status_code == 200
-assert 'Test card' in response.data.decode()
-
 @pytest.fixture
 def client():
     # Use our test integration config instead of the 'real' version
@@ -19,8 +16,7 @@ def client():
     # Use the app to create a test_client that can be used in our tests.
     with test_app.test_client() as client:
         yield client
- 
- 
+
 def test_index_page(monkeypatch, client):
     # Replace call to requests.get(url) with our own function
     monkeypatch.setattr(requests, 'get', get_lists_stub)
@@ -43,4 +39,7 @@ def get_lists_stub(url, params):
             'cards': [{'id': '456', 'name': 'Test card'}]
         }]
     return StubResponse(fake_response_data)
+
+assert response.status_code == 200
+assert 'Test card' in response.data.decode()
 
