@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 
-from todo_app.flask_config import Config # when done with new def can be removed? 
+from todo_app.flask_config import Config
 import requests  
 import os
 from todo_app.data.item import Item
 import todo_app.data.trello_items as trello_items
 from todo_app.data.view_model import ViewModel
 
-#new
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
