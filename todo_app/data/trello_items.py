@@ -4,7 +4,7 @@ import requests
 import os
 
 def get_trello_cards():
-    url = "https://api.trello.com/1/boards/6205664a19d7b437223061eb/lists" 
+    url = f'https://api.trello.com/1/boards/{os.getenv("TRELLO_BOARD_ID")}/lists' 
 
     print(os.getenv("API_KEY"))
 
@@ -14,7 +14,7 @@ def get_trello_cards():
         "cards": "open"
     }
 
-    response = requests.request("GET", url, params=querystring)
+    response = requests.get(url, params=querystring)
 
     response_json = response.json()
 
