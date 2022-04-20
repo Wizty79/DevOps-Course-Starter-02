@@ -1,0 +1,50 @@
+- name: install and run to-do app
+  hosts: webservers
+  remote_user: ec2-user
+  vars_files:
+  - secrets.yml
+
+  tasks:
+  - name: install Git
+    become: yes
+    ansible.builtin.yum:
+      name: git
+      state: latest
+  - name: install Python
+    become: yes
+    ansible.builtin.yum:
+        name: python3
+        state: latest
+  - name: install Poetry
+    ansible.builtin.shell: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+  - name: directory for To-Do App
+    ansible.builtin.file:
+        path: /opt/todoapp
+        state: directory
+        owner: ec2-user
+  - name: Checkout Git Repo
+    become: yes
+    ansible.builtin.git:
+        repo: https://github.com/Wizty79/DevOps-Course-Starter-02
+        dest: /opt/todoapp
+        version: exercise_04
+        clone: yes
+        update: yes
+  - name: run Poetry install
+    ansible.builtin.shell: /home/ec2-user/.poetry/bin/poetry install
+    args:
+       chdir: /opt/todoapp
+  - name: env
+    ansible.builtin.template:
+       src: .env.j2
+       dest: /opt/todoapp/.env
+  - name: copy
+    ansible.builtin.copy:
+       src: todoapp.service
+       dest: /etc/systemd/system/todoapp.service
+    become: yes
+  - name: start app
+    ansible.builtin.systemd:
+       name: todoapp.service
+       state: started
+    become: yes
