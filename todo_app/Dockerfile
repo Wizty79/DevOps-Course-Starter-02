@@ -1,3 +1,3 @@
-From balenalib/apalis-imx6q-alpine-golang
+FROM apline
 
-ENTRYPOINT ["ECHO", "hELLO, wORLD"]
+ENTRYPOINT ["ECHO", "Hello, World"]
