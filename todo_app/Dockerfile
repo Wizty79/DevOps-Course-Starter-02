@@ -1,3 +1,3 @@
 FROM apline
 
-ENTRYPOINT ["ECHO", "Hello, World"]
+ENTRYPOINT ["echo" "Hello, World"]
