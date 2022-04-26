@@ -1,3 +1,3 @@
-FROM apline
+FROM alpine
 
-ENTRYPOINT ["echo" "Hello, World"]
+ENTRYPOINT ["echo" "Hello, World"] .
