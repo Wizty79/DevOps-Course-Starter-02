@@ -1,4 +1,4 @@
-FROM slim-buster
+FROM debian
 
 WORKDIR /app
 
