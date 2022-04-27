@@ -8,6 +8,6 @@ COPY todo_app .
 RUN apt-get update && apt-get upgrade -y
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 
-ENTRYPOINT [poetry run gunicorn run] 
+EXPOSE 80
 
-EXPOSE 8080
+ENTRYPOINT [poetry run gunicorn run] .
