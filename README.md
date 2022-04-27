@@ -92,3 +92,10 @@ you can run the tests by running the command:
 $ poetry run pytest 
 ```
 >>>>>>> origin/exercise_03
+
+## launching the To-Do App onto a virtual Machine using Ansible 
+
+You can provision a VM from an Ansible Control Node by running the command "ssh user_name@IP_of_Ansible_controller", you will then be asked "Are you sure you want to continue connecting (yes/no/[fingerprint])? " just say yes and provide the password when prompted.  
+
+You can now continue setting up your ansible playbook if you haven't already (see example in this code base or the official Ansible documentation https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks). 
+ 
