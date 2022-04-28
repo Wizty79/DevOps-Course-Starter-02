@@ -4,6 +4,7 @@ WORKDIR /app
 
 #ADD https://github.com/Wizty79/DevOps-Course-Starter-02/exercise_05 .
 COPY todo_app .
+COPY pyproject.toml .
 
 RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
