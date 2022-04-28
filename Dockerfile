@@ -2,7 +2,7 @@ FROM debian
 
 WORKDIR /app
 
-ADD https://github.com/Wizty79/DevOps-Course-Starter-02/exercise_05 .
+#ADD https://github.com/Wizty79/DevOps-Course-Starter-02/exercise_05 .
 COPY todo_app .
 
 RUN apt-get update && apt-get upgrade -y
