@@ -15,4 +15,4 @@ RUN apt-get update && apt-get upgrade -y
 
 EXPOSE 80
 
-ENTRYPOINT [poetry run gunicorn run] .
+ENTRYPOINT ["poetry run", "gunicorn run"]
