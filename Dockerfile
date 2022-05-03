@@ -15,8 +15,8 @@ RUN apt-get update && apt-get upgrade -y
 
 EXPOSE 80
 
-ENTRYPOINT ["poetry"]
+#ENTRYPOINT ["poetry"]
 #ENTRYPOINT ["executable", "poetry run", "gunicorn run"]
-#ENTRYPOINT ["poetry run", "gunicorn run"]
+ENTRYPOINT poetry run flask run
 #ENTRYPOINT ["poetry run gunicorn run"]
-CMD ["poetry run", "gunicorn run"]
+#CMD ["poetry run", "gunicorn run"]
