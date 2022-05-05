@@ -14,7 +14,7 @@ RUN poetry add gunicorn
 RUN apt-get update && apt-get upgrade -y
 #RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 
-EXPOSE 80
+EXPOSE 5000
 
 #ENTRYPOINT ["poetry"]
 #ENTRYPOINT ["executable", "poetry run", "gunicorn run"]
