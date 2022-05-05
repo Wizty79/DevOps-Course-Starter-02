@@ -18,6 +18,6 @@ EXPOSE 80
 
 #ENTRYPOINT ["poetry"]
 #ENTRYPOINT ["executable", "poetry run", "gunicorn run"]
-ENTRYPOINT poetry run gunicorn run
+ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" -b 0.0.0.0
 #ENTRYPOINT ["poetry run gunicorn run"]
 #CMD ["poetry run", "gunicorn run"]
