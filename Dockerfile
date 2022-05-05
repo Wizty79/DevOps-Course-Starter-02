@@ -9,6 +9,7 @@ COPY pyproject.toml .
 RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev
+RUN pip3 install gunicorn
 
 RUN apt-get update && apt-get upgrade -y
 #RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
@@ -17,6 +18,6 @@ EXPOSE 80
 
 #ENTRYPOINT ["poetry"]
 #ENTRYPOINT ["executable", "poetry run", "gunicorn run"]
-ENTRYPOINT poetry run flask run
+ENTRYPOINT poetry run gunicorn run
 #ENTRYPOINT ["poetry run gunicorn run"]
 #CMD ["poetry run", "gunicorn run"]
