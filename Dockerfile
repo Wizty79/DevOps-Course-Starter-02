@@ -3,7 +3,7 @@ FROM python:3.7
 WORKDIR /app
 
 #ADD https://github.com/Wizty79/DevOps-Course-Starter-02/exercise_05 .
-COPY todo_app/flask_config.py .
+COPY todo_app ./todo-app/
 COPY pyproject.toml .
 
 RUN pip3 install poetry
