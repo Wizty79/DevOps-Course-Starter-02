@@ -1,9 +1,9 @@
-FROM python:3.7
+FROM python:3.7 as basepy
 
 WORKDIR /app
 
 #ADD https://github.com/Wizty79/DevOps-Course-Starter-02/exercise_05 .
-COPY todo_app ./todo-app/
+COPY todo_app ./todo_app/
 COPY pyproject.toml .
 
 RUN pip3 install poetry
@@ -16,9 +16,8 @@ RUN apt-get update && apt-get upgrade -y
 
 EXPOSE 5000
 
-#ENTRYPOINT ["poetry"]
-#ENTRYPOINT ["executable", "poetry run", "gunicorn run"]
-ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" -b 0.0.0.0
-#ENTRYPOINT ["poetry run gunicorn run"]
-#CMD ["poetry run", "gunicorn run"]
-##ENTRYPOINT ["poetry" , "run" , "gunicorn" , "todo_app.app:create_app()" , "-b" , "0.0.0.0:5000"]
+FROM basepy as prodpy
+ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" -b 0.0.0.0:5000
+
+FROM basepy as devpy
+ENTRYPOINT poetry run flask run --host 0.0.0.0
