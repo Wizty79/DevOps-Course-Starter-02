@@ -99,3 +99,36 @@ You can provision a VM from an Ansible Control Node by running the command "ssh 
 
 You can now continue setting up your ansible playbook if you haven't already (see example in this code base or the official Ansible documentation https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks). 
  
+## launching the todo-app into a container (Docker in this case)
+
+Install Docker, <insert URL for installation page>
+write Docker file <insert docker URL for guide>
+
+Commands (remember to add explanations):
+
+run as/with bash? overriding entrypoint
+docker run --env-file ./.env -p 5000:5000 --entrypoint bash -it todo-app
+
+build as is
+docker build --tag todo-app .
+
+Run as is
+docker run --env-file ./.env -p 5000:5000 todo-app
+
+Building the prod version:
+docker build --tag todo-app:prod --target prodpy .
+
+Building the dev version:
+docker build --tag todo-app:dev --target devpy .
+
+Running the prod version:
+docker run --env-file ./.env -p 5000:5000 todo-app:prod
+
+Running the dev version:
+docker run --env-file ./.env -p 5000:5000 todo-app:dev
+
+Mounting:
+docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
+
+
+
