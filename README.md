@@ -101,40 +101,40 @@ You can now continue setting up your ansible playbook if you haven't already (se
  
 ## launching the todo-app into a container (Docker in this case)
 
-To install Docker see https://www.docker.com/products/docker-desktop/
-To write a Docker file see the documnetation https://docs.docker.com/desktop/
+First you'll need to install Docker see this link https://www.docker.com/products/docker-desktop/ (if unsing Gitpod you can simply do this using pip install or one of the other options )
+To write a Docker file please see the documentation https://docs.docker.com/desktop/
 
-Commands (remember to add explanations):
+Commands to run the file in various modes(see code base for example as to how multi-stage build have been used to have a production and developer mode/version) see this link for more regarding multi-stage builds https://docs.docker.com/develop/develop-images/multistage-build/
 
-run as/with bash? overriding entrypoint
+Run and overriding the entrypoint to use bash:
 docker run --env-file ./.env -p 5000:5000 --entrypoint bash -it todo-app
 
-build as is
+Build the image:
 docker build --tag todo-app .
 
-Run as is
+Run the image:
 docker run --env-file ./.env -p 5000:5000 todo-app
 
-Building the prod version:
+Build the production version:
 docker build --tag todo-app:prod --target prodpy .
 
-Building the dev version:
-docker build --tag todo-app:dev --target devpy .
-
-Running the prod version:
+Run the production version:
 docker run --env-file ./.env -p 5000:5000 todo-app:prod
 
-Running the dev version:
+Build the developer version:
+docker build --tag todo-app:dev --target devpy .
+
+Run the developer version:
 docker run --env-file ./.env -p 5000:5000 todo-app:dev
 
 Bind Mount and volume:
 Generally you can bind mount by using the option --mount
 
-Further see the followeing comman used for this specific codebase:
+Further see the following command to use for this specific codebase:
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
 
-For more detailed use of this see the followeing link regarding the use of bind mounts:
+For more details see the following link regarding the use of bind mounts:
 https://docs.docker.com/storage/bind-mounts/?msclkid=91003082cf8011ec99b6a62f98d6305a
+
 And see this link regarding the use of volumes:
 https://docs.docker.com/storage/volumes/
-
