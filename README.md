@@ -101,10 +101,11 @@ You can now continue setting up your ansible playbook if you haven't already (se
  
 ## launching the todo-app into a container (Docker in this case)
 
-First you'll need to install Docker see this link https://www.docker.com/products/docker-desktop/ (if unsing Gitpod you can simply do this using pip install or one of the other options )
-To write a Docker file please see the documentation https://docs.docker.com/desktop/
+tip: if in you have white/blank space in your code base or after a line of code, make sure to delete it; while Python may be able to understand the code just fine, Docker is much more sensitive and will cause errors even with one single blankspace after a line of code. 
 
-Commands to run the file in various modes(see code base for example as to how multi-stage build have been used to have a production and developer mode/version) see this link for more regarding multi-stage builds https://docs.docker.com/develop/develop-images/multistage-build/
+First you'll need to install Docker see this link https://www.docker.com/products/docker-desktop/ (if unsing Gitpod you can simply do this using pip install or one of the other options ) To write a Docker file please see the documentation https://docs.docker.com/desktop/
+
+See bleow for commands to run the Dockerfile in various modes/versions(see code base for example as to how multi-stage build have been used to have a production and developer mode/version) see this link for more regarding multi-stage builds https://docs.docker.com/develop/develop-images/multistage-build/
 
 Run and overriding the entrypoint to use bash:
 docker run --env-file ./.env -p 5000:5000 --entrypoint bash -it todo-app
@@ -129,7 +130,6 @@ docker run --env-file ./.env -p 5000:5000 todo-app:dev
 
 Bind Mount and volume:
 Generally you can bind mount by using the option --mount
-
 Further see the following command to use for this specific codebase:
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
 
