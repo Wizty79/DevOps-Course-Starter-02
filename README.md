@@ -101,8 +101,8 @@ You can now continue setting up your ansible playbook if you haven't already (se
  
 ## launching the todo-app into a container (Docker in this case)
 
-Install Docker, <insert URL for installation page>
-write Docker file <insert docker URL for guide>
+To install Docker see https://www.docker.com/products/docker-desktop/
+To write a Docker file see the documnetation https://docs.docker.com/desktop/
 
 Commands (remember to add explanations):
 
