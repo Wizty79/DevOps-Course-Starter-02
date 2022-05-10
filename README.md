@@ -131,6 +131,7 @@ docker run --env-file ./.env -p 5000:5000 todo-app:dev
 Bind Mount and volume:
 Generally you can bind mount by using the option --mount
 Further see the following command to use for this specific codebase:
+
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
 
 For more details see the following link regarding the use of bind mounts:
