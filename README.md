@@ -101,7 +101,7 @@ You can now continue setting up your ansible playbook if you haven't already (se
  
 ## launching the todo-app into a container (Docker in this case)
 
-tip: if in you have white/blank space in your code base or after a line of code, make sure to delete it; while Python may be able to understand the code just fine, Docker is much more sensitive and will through errors even with one single blankspace after a line of code. 
+Tip: if in you have white/blank space in your code base or after a line of code, make sure to delete it; while Python may be able to understand the code just fine, Docker is much more sensitive and will through errors even with one single blankspace after a line of code. 
 
 First you'll need to install Docker, please see this link https://www.docker.com/products/docker-desktop/ (if unsing Gitpod you can simply do this by using pip install or one of the other options ) 
 To write a Docker file please see the documentation https://docs.docker.com/desktop/
@@ -142,5 +142,5 @@ https://docs.docker.com/storage/bind-mounts/?msclkid=91003082cf8011ec99b6a62f98d
 And see this link regarding the use of volumes:
 https://docs.docker.com/storage/volumes/
 
-Please note that the .env file have been added to a .dockerignore file for security reasons. See this link for more info regarding the use of the dockerignore file: 
+Please note that in this code base the .env file have been added to a .dockerignore file for security reasons. See this link for more info regarding the use of the dockerignore file: 
 https://docs.docker.com/engine/reference/builder/#dockerignore-file
