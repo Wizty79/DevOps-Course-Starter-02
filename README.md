@@ -130,9 +130,9 @@ docker build --tag todo-app:dev --target devpy .
 Run the developer version:
 docker run --env-file ./.env -p 5000:5000 todo-app:dev
 
-Bind Mount and volume:
+Bind Mount and volume in dev version:
 Generally you can bind mount by using the option --mount
-Further see the following command to use for this specific codebase:
+See the following command to use for this specific codebase:
 
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
 
