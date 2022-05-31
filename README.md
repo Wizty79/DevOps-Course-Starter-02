@@ -99,3 +99,49 @@ You can provision a VM from an Ansible Control Node by running the command "ssh 
 
 You can now continue setting up your ansible playbook if you haven't already (see example in this code base or the official Ansible documentation https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks). 
  
+## launching the todo-app into a container (Docker in this case)
+
+Tip: if you have white/blank space in your code base or after a line of code, make sure to delete it; while Python may be able to understand the code just fine, Docker is much more sensitive and will through errors even with one single blankspace after a line of code (lesson hard learned). 
+
+First you'll need to install Docker, please see this link https://www.docker.com/products/docker-desktop/ (if unsing Gitpod you can simply do this by using pip install).
+For help regarding writing a Docker file, please see the documentation https://docs.docker.com/desktop/
+
+See below for the commands to run the Dockerfile in various modes/versions (see the code base for examples as to how multi-stage build have been used to have a production and developer mode/version) 
+See this link for more info regarding multi-stage builds https://docs.docker.com/develop/develop-images/multistage-build/
+
+Run and overriding the entrypoint to use bash:
+docker run --env-file ./.env -p 5000:5000 --entrypoint bash -it todo-app
+
+Build the image:
+docker build --tag todo-app .
+
+Run the image:
+docker run --env-file ./.env -p 5000:5000 todo-app
+
+Build the production version:
+docker build --tag todo-app:prod --target prodpy .
+
+Run the production version:
+docker run --env-file ./.env -p 5000:5000 todo-app:prod
+
+Build the developer version:
+docker build --tag todo-app:dev --target devpy .
+
+Run the developer version:
+docker run --env-file ./.env -p 5000:5000 todo-app:dev
+
+Bind Mount and volume in dev version:
+Generally you can bind mount by using the option --mount
+See the following command to use for this specific codebase:
+
+docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
+
+For more details see the following link regarding the use of bind mounts:
+https://docs.docker.com/storage/bind-mounts/?msclkid=91003082cf8011ec99b6a62f98d6305a
+
+And see this link regarding the use of volumes:
+https://docs.docker.com/storage/volumes/
+
+Please note that in this code base the .env file have been added to a .dockerignore file for security reasons. 
+See this link for more info regarding the use of the dockerignore file: 
+https://docs.docker.com/engine/reference/builder/#dockerignore-file
