@@ -21,7 +21,7 @@ jobs:
       run: poetry add gunicorn
 
     - name: Install pytest
-      run: import pytest
+      run: pip install pytest
 
     - name: Run app test
       working-directory: test_app.py
