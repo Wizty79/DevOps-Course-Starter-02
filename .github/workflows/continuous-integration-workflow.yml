@@ -24,7 +24,7 @@ jobs:
       run: pip install pytest
 
     - name: Run app test
-      working-directory: app.py/test_app.py
+      working-directory: todo_app/test_app.py
       run: test_app.py
 
   
