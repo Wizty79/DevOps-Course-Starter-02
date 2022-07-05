@@ -20,6 +20,13 @@ jobs:
     - name: Install gunicorn
       run: poetry add gunicorn
 
+    - name: Install pytest
+      run: import pytest
+
+    - name: Run app test
+      working-directory: test_app.py
+      run: test_app.py
+
   
 
 
