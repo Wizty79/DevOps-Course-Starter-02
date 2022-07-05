@@ -22,13 +22,6 @@ jobs:
 
     - name: Install pytest
       run: pip install pytest
-
-    - name: Run app test   # lost here? need to call/build the docker test image instead, target that stage. 
-      working-directory: web
-      run: test_app.py
-
-  
-
-
+      
 
 
