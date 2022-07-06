@@ -22,5 +22,9 @@ ENTRYPOINT poetry run flask run --host 0.0.0.0
 
 FROM basepy as devtestpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
+RUN addgroup --system test
+RUN adduser --system basepy
+USER basepy:test 
 RUN todo_app/test_app.py --tag app-test
 RUN todo_app/test_view_model.py --tage view_model_test
+
