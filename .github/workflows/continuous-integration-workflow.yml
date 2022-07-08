@@ -12,6 +12,6 @@ jobs:
       run: docker build --tag todo-app:devtest --target devtestpy .
 
     - name: Run Docker  
-      run: docker run -p 5000:5000 todo-app:devtest
+      run: docker run 5000:5000 todo-app:devtest
 
 
