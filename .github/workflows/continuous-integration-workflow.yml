@@ -7,21 +7,11 @@ jobs:
     runs-on: ubuntu-latest     # Sets the build environment a machine with the latest Ubuntu installed
     steps:
     - uses: actions/checkout@v2  # Adds a step to checkout the repository code
-        
-    - name: Install python
-      run: python -m pip install --upgrade pip setuptools wheel
-
-    - name: Install poetry
-      run: pip install poetry
     
-    - name: Install flask
-      run: pip install flask 
+    - name: Build Docker
+      run: docker build --tag todo-app:devtest --target devtestpy .
 
-    - name: Install gunicorn
-      run: poetry add gunicorn
-
-    - name: Install pytest
-      run: pip install pytest
-      
+    - name: Run Docker  
+      run: docker run --env-file ./.env -p 5000:5000 todo-app:devtest
 
 
