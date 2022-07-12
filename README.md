@@ -141,3 +141,5 @@ https://docs.docker.com/storage/volumes/
 Please note that in this code base the .env file have been added to a .dockerignore file for security reasons. 
 See this link for more info regarding the use of the dockerignore file: 
 https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
+
