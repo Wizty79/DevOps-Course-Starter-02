@@ -124,6 +124,14 @@ See the following command to use for this specific codebase:
 
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
 
+Run all tests inside Docker:
+
+Build the Container:
+docker build --tag todo-app:devtest --target devtestpy .
+
+Run the tests in Docker:
+docker run --env-file ./.env -p 5000:5000 todo-app:devtest
+
 For more details see the following link regarding the use of bind mounts:
 https://docs.docker.com/storage/bind-mounts/?msclkid=91003082cf8011ec99b6a62f98d6305a
 
