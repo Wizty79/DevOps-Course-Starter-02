@@ -12,4 +12,4 @@ jobs:
       run: docker build --tag todo-app:devtest --target devtestpy .
 
     - name: Run Docker
-      run: docker run -e API_KEY=${{ secrets.API_KEY }} -e API_TOKEN=${{ secrets.API_TOKEN }} -e TRELLO_TODO_LIST_ID =${{ secrets.TRELLO_TODO_LIST_ID }} -e TRELLO_DONE_LIST_ID=${{ secrets.TRELLO_DONE_LIST_ID}} -e TRELLO_BOARD_ID=${{ secrets.TRELLO_BOARD_ID}} -e FLASK_APP=${{ secrets.FLASK_APP}} -e FLASK_ENV=${{ secrets.FLASK_ENV}} -e SECRET_KEY=${{ secrets.SECRET_KEY }} todo-app:devtest
+      run: docker run -e API_KEY=${{ secrets.API_KEY_X }} -e API_TOKEN=${{ secrets.API_TOKEN_X }} -e TRELLO_TODO_LIST_ID =${{ secrets.TRELLO_TODO_LIST_ID_X }} -e TRELLO_DONE_LIST_ID=${{ secrets.TRELLO_DONE_LIST_ID_X}} -e TRELLO_BOARD_ID=${{ secrets.TRELLO_BOARD_ID_X}} -e FLASK_APP=${{ secrets.FLASK_APP_X}} -e FLASK_ENV=${{ secrets.FLASK_ENV_X}} -e SECRET_KEY=${{ secrets.SECRET_KEY_X }} todo-app:devtest
