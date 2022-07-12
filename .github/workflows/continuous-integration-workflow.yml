@@ -1,6 +1,8 @@
 name: Continuous Integration
 on: 
    push:                    # Will make the workflow run every time you push to any branch
+    paths-ignore:
+    - 'README/**'
    pull_request:
     paths-ignore:
     - 'README/**'
