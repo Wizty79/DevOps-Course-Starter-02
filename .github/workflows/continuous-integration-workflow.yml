@@ -7,6 +7,8 @@ on:
     paths-ignore:
     - '**/README.md'
 
+#add second job and make sure both are named/numbered  
+
 jobs:
   build:
     name: Build and test
