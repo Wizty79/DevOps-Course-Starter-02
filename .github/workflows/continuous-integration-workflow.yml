@@ -7,8 +7,6 @@ on:
     paths-ignore:
     - '**/README.md'
 
-#add second job and make sure both are named/numbered  
-
 jobs:
   job-one:
     name: Build and test
@@ -43,5 +41,5 @@ jobs:
       -
           name: Build and push
           uses: docker/build-push-action@v3
-            docker build --target <prodpy> --tag <prod_image> .
-            docker push <prod_image>
+            docker build --target prodpy --tag prod_image .
+            docker push prod_image
