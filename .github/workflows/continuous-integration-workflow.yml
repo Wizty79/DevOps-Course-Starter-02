@@ -40,8 +40,8 @@ jobs:
           with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - 
+      -
           name: Build and push
           uses: docker/build-push-action@v3
-            docker build --target prodpy --tag prod_image . 
-            docker push prod_image 
+            docker build --target prodpy --tag prod_image .
+            docker push prod_image
