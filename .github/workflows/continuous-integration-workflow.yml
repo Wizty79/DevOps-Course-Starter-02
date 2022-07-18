@@ -41,5 +41,6 @@ jobs:
       -
           name: Build and push
           uses: docker/build-push-action@v3
-            docker build --target prodpy --tag prod_image .
-            docker push prod_image
+          with:
+            push: true
+            tags: user/app:latest
