@@ -10,7 +10,7 @@ on:
 #add second job and make sure both are named/numbered  
 
 jobs:
-  build:
+  job-one:
     name: Build and test
     runs-on: ubuntu-latest     # Sets the build environment a machine with the latest Ubuntu installed
     steps:
@@ -22,9 +22,10 @@ jobs:
     - name: Run Docker
       run: docker run -e FLASK_APP=${{ secrets.FLASK_APP_X}} -e FLASK_ENV=${{ secrets.FLASK_ENV_X}} -e SECRET_KEY=${{ secrets.SECRET_KEY_X }} todo-app:devtest
 
-  docker:
+  job-two:
     name: image push
     runs-on: ubuntu-latest
+    needs: job-one
     steps:
       -
           name: Login to DockerHub
