@@ -45,4 +45,4 @@ jobs:
             context: .
             push: true
             tags: user/app:latest
-            run: docker build --target prodpy --tag prod_image . / docker push prod_image
+            run: docker build --target devpy --tag prod_image .
