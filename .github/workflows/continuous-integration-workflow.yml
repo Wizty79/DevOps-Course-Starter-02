@@ -46,6 +46,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: Dockerfile
           push: true
-          user: ${{ secrets.DOCKER_USERNAME }} #random idear? 
           tags: user/app:latest
