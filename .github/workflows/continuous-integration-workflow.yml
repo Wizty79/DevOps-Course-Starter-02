@@ -39,8 +39,8 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
       -
-          name: Build and push
-          uses: docker/build-push-action@v3
-          with:
-            push: true
-            tags: user/app:latest
+          name: Build
+          uses: docker build --target prodpy --tag prod_image .
+      - 
+          name: Push
+          uses: docker push prod_image 
