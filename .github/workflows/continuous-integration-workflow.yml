@@ -47,4 +47,5 @@ jobs:
         with:
           context: .
           push: true
+          user: ${{ secrets.DOCKER_USERNAME }} #random idear? 
           tags: user/app:latest
