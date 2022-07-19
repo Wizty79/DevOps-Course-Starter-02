@@ -40,7 +40,7 @@ jobs:
             password: ${{ secrets.DOCKER_TOKEN }}
       -
           name: Build
-          uses: docker build --target prodpy --tag prod_image .
+          run: docker build --target prodpy --tag prod_image .
       - 
           name: Push
-          uses: docker push prod_image 
+          run: docker push prod_image 
