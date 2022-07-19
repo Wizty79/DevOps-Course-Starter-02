@@ -41,4 +41,6 @@ jobs:
       -
           name: Build and push
           uses: docker/build-push-action@v3
-          run: docker build --target devpy --tag prod_image .
+          with:
+            push: true
+            tags: user/app:latest
