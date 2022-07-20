@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build 
-        uses: docker build --tag todo-app:latest --target prodpy .
+        run: docker build --tag todo-app:latest --target prodpy .
         with:
           context: .
           file: Dockerfile
