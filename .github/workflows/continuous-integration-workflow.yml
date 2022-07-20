@@ -47,5 +47,6 @@ jobs:
         with:
           context: .
           file: Dockerfile
+          target: devpy
           push: true
-          tags: user/app:devpy
+          tags: user/app:latest
