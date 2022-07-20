@@ -49,4 +49,4 @@ jobs:
           file: Dockerfile
           target: devpy
           push: true
-          tags: secrets.DOCKERHUB_USERNAME/wi79_images:latest
+          tags: DOCKERHUB_USERNAME/wi79_images:latest
