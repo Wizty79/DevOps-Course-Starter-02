@@ -49,4 +49,4 @@ jobs:
           file: Dockerfile
           target: devpy
           push: true
-          tags: user/app:latest
+          tags: wizty79/wi79_images:latest
