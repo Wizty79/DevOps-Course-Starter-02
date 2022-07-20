@@ -42,8 +42,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
-        uses: docker/build-push-action@v3
+        name: Build 
+        uses: docker build --tag todo-app:latest --target prodpy . / docker push latest
         with:
           context: .
           file: Dockerfile
