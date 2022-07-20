@@ -48,6 +48,5 @@ jobs:
           context: .
           file: Dockerfile
           target: devpy
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
           push: true
-          tags: wi79_images:latest
+          tags: wizty79/wi79_images:latest
