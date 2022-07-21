@@ -46,13 +46,8 @@ The `.env` file is used by flask to set environment variables when running `flas
 
  * Get the To-Do and Do list ID's,as well as the board id, one way of doing this would be to use a service like Postman or Hoppscotch to make API requests.  
 
-<<<<<<< HEAD
- * Add the Trello API key, token, board and list ID's as variables in the .env file. they should be named as followes: API_KEY, API_TOKEN, BOARD_ID, TRELLO_TODO_LIST_ID, and TRELLO_DONE_LIST_ID. 
- Note if using a virtual machine like Gitpod exclusively, you will have to re-add these variables to the .env file at the start of every new session as you will have no local copy of the code and the file will not be committed to the repo due to security reasons. (the .env files it added to the .gitignore file).
-=======
   * Add the Trello API key, token, board and list ID's as variables in the .env file. they should be named as followes: API_KEY, API_TOKEN, TRELLO_BOARD_ID, TRELLO_TODO_LIST_ID, and TRELLO_DONE_LIST_ID. 
   Note if using a virtual machine like Gitpod exclusively, you will have to re-add these variables to the .env file at the start of every new session as you will have no local copy of the code and the file will not be committed to the repo due to security reasons. (the .env files it added to the .gitignore file).
->>>>>>> origin/exercise_03
 
 ## Running the App
 
@@ -75,23 +70,16 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 
 ## Testing the App
 
-<<<<<<< HEAD
-If you are experiecing issue with the App after making your own changes, you'll find to unit tests are ready to run to test the View_model class is sorting the items as intended. 
-=======
 If you are experiencing issues with the App after making your own changes, you'll find two unit tests are ready to run to test that the View_model class is sorting the items as intended. You'll also find an integration test intended to test the app.py code base itself and the Trello API calls it makes. 
 
->>>>>>> origin/exercise_03
 If not already install, you'll need pytest, you can do this by running the command(please not if your using a virtual machine you may need to install this every time you start a new session):
 ```bash
 $ pip install pytest 
 ```
-<<<<<<< HEAD
-=======
 you can run the tests by running the command:
 ```bash
 $ poetry run pytest 
 ```
->>>>>>> origin/exercise_03
 
 ## launching the To-Do App onto a virtual Machine using Ansible 
 
@@ -135,6 +123,14 @@ Generally you can bind mount by using the option --mount
 See the following command to use for this specific codebase:
 
 docker run --env-file ./.env -p 5000:5000 --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
+
+Run all tests inside Docker:
+
+Build the Container:
+docker build --tag todo-app:devtest --target devtestpy .
+
+Run the tests in Docker:
+docker run --env-file ./.env -p 5000:5000 todo-app:devtest
 
 For more details see the following link regarding the use of bind mounts:
 https://docs.docker.com/storage/bind-mounts/?msclkid=91003082cf8011ec99b6a62f98d6305a

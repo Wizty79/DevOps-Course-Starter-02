@@ -19,3 +19,6 @@ ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" -b 0.0.0.0:5000
 
 FROM basepy as devpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
+
+FROM basepy as devtestpy
+ENTRYPOINT poetry run pytest
