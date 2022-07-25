@@ -3,6 +3,5 @@
         "."
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "hero-heroku.apiKey": "6a68dd96-eefe-4a14-9cca-671ebddf4d98"
+    "python.testing.pytestEnabled": true
 }
