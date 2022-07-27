@@ -22,7 +22,6 @@ jobs:
 
   job-two:
     name: image build & push 
-    if: github.ref == "main" 
     runs-on: ubuntu-latest
     needs: job-one
     steps:
