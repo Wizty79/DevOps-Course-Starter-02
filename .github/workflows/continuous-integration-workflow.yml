@@ -47,7 +47,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          target: devpy
+          target: prodpy
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:latest
           

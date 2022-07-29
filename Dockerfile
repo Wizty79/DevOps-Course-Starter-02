@@ -15,7 +15,7 @@ RUN apt-get update && apt-get upgrade -y
 EXPOSE 5000
 
 FROM basepy as prodpy
-ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" -b 0.0.0.0:5000
+CMD poetry run gunicorn "todo_app.app:create_app()" --bind 0.0.0.0:${PORT:-5000}
 
 FROM basepy as devpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
