@@ -64,3 +64,4 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: exercise_08
+          usedocker: git push heroku exercise_08:main
