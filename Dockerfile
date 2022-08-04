@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y
 
 EXPOSE 5000
 
-FROM basepy as prodpy
+FROM basepy as latest
 CMD poetry run gunicorn "todo_app.app:create_app()" --bind 0.0.0.0:${PORT:-5000}
 
 FROM basepy as devpy
