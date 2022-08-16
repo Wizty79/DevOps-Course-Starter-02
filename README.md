@@ -145,3 +145,5 @@ https://docs.docker.com/engine/reference/builder/#dockerignore-file
 ## Launching the app with Heroku
 
 To see the app working in Heroku, please go to this link: https://wisti.herokuapp.com/
+
+Please note that the order of the jobs in the Dockefile have been changed, this is due to that the heroku-deploy action don't have a solution for specifying a target, it will simply take the bottom one from the Docker file, so the desired one to use have been placed last for this reason. For future use, or updates, it would be suggested to check the marketplace actions to see if this have been updated.
