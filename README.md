@@ -148,4 +148,7 @@ To see the app working in Heroku, please go to this link: https://wisti.herokuap
 
 Please note that the order of the jobs in the Dockefile have been changed, this is due to that the heroku-deploy action don't have a solution for specifying a target, it will simply take the bottom one from the Docker file, so the desired one to use have been placed last for this reason. For future use, or updates, it would be suggested to check the marketplace actions to see if this have been updated.
 
-##branch setup for project exercise 9 , this will be replaced with the instructions for project exercise 9
+## Hosting the app on Azure
+
+First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home
+
