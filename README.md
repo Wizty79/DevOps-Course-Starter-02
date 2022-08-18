@@ -151,4 +151,5 @@ Please note that the order of the jobs in the Dockefile have been changed, this 
 ## Hosting the app on Azure
 
 First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home
+Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, the Azure extension. 
 
