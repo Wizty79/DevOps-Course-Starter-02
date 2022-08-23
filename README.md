@@ -153,3 +153,7 @@ Please note that the order of the jobs in the Dockefile have been changed, this 
 First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home
 Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, the Azure extension. 
 
+if your having issues loggin into Azure via the terminal using the extension options, you can run the command below instead:
+
+az login --use-device-code
+
