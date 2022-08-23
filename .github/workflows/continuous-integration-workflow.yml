@@ -85,4 +85,3 @@ jobs:
           az group list
           pwd
           az webapp list --query "[?state=='Running']"
-          

@@ -150,12 +150,14 @@ Please note that the order of the jobs in the Dockefile have been changed, this 
 
 ## Hosting the app on Azure
 
-First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home
+First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home 
 Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, the Azure extension. 
 
-if your having issues loggin into Azure via the terminal using the extension options, you can run the command below instead:
+To add the Azure deploy to your CI/CD pipeline, you'll need to find your Azure client ID, tenant ID and subscription ID. You can find these when you log in to your Azure account on their site directly. https://portal.azure.com/#home 
+
+If your having issues loggin into Azure via the terminal using the extension options, you can run the command below instead:
 
 az login --use-device-code
 
-After this it will provide you with a link to follow and a temp code to use on that page to authenticate.
+After this have been done, it will provide you with a link to follow and a temp code to use on that page which will then authenticate.
  
