@@ -157,3 +157,5 @@ if your having issues loggin into Azure via the terminal using the extension opt
 
 az login --use-device-code
 
+After this it will provide you with a link to follow and a temp code to use on that page to authenticate.
+ 
