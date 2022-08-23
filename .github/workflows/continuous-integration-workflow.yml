@@ -65,7 +65,7 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           usedocker: true
   job-four:
-    name: build and deploy Azure
+    name: Run Azure Login with OpenID Connect
     runs-on: ubuntu-latest
     needs: [job-one, job-two, job-three]
     permissions:
