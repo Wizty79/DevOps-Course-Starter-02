@@ -155,9 +155,27 @@ Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, the 
 
 To add the Azure deploy to your CI/CD pipeline, you'll need to find your Azure client ID, tenant ID and subscription ID. You can find these when you log in to your Azure account on their site directly. https://portal.azure.com/#home 
 
-If your having issues loggin into Azure via the terminal using the extension options, you can run the command below instead:
+To Install Azure you can run this command: 
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+And after this, you should be able to login by running this command:
+az login
+
+However, if your having issues logging into Azure, you can run the command below instead:
 
 az login --use-device-code
 
 After this have been done, it will provide you with a link to follow and a temp code to use on that page which will then authenticate.
  
+Then  to create an app service plan, you cna run:
+
+az appservice plan create --resource-group <resource_group_name> -n <appservice_plan_name> --sku B1 --is-linux 
+
+And, to create the app:
+
+az webapp create --resource-group <resource_group_name> --plan <appservice_plan_name> --name <webapp_name> --deployment-container-image-name <dockerhub_username>/todo-app:latest
+
+After this you can setup the enviroment variables via Azure site, or individually:
+
+az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --settings FLASK_APP=todo_app/app.
+
