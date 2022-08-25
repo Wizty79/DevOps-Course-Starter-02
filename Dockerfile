@@ -12,7 +12,7 @@ RUN poetry add gunicorn
 
 RUN apt-get update && apt-get upgrade -y
 
-EXPOSE 80
+EXPOSE 8080
 
 FROM basepy as devpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
