@@ -12,7 +12,7 @@ RUN poetry add gunicorn
 
 RUN apt-get update && apt-get upgrade -y
 
-EXPOSE 8080
+EXPOSE 5000
 
 FROM basepy as devpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
@@ -21,4 +21,4 @@ FROM basepy as devtestpy
 ENTRYPOINT poetry run pytest
 
 FROM basepy as prodpy
-CMD poetry run gunicorn "todo_app.app:create_app()" --bind 0.0.0.0:${PORT:-8080}
+CMD poetry run gunicorn "todo_app.app:create_app()" --bind 0.0.0.0:${PORT:-5000}
