@@ -177,5 +177,6 @@ az webapp create --resource-group <resource_group_name> --plan <appservice_plan_
 
 After this you can setup the enviroment variables via Azure site, or individually:
 
-az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --settings FLASK_APP=todo_app/app.
+az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --settings FLASK_APP=todo_app/app
 
+Then you can go to http://<webapp_name>.azurewebsites.net/ to confirm that the app is running. 
