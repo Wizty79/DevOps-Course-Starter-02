@@ -71,6 +71,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    
     steps:
     - name: 'Az CLI login'
       uses: azure/login@v1
@@ -80,9 +81,4 @@ jobs:
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
             enable-AzPSSession: true
     - name: 'Run Azure CLI commands'
-      run: |
-          az account show
-          az group list
-          pwd
-          curl -dH -X POST ${{ secrets.WEBHOOK_AZ }}
-
+      run: curl -dH -X POST ${{ secrets.WEBHOOK_AZ }}
