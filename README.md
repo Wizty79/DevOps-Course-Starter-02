@@ -180,3 +180,5 @@ After this you can setup the enviroment variables via Azure site, or individuall
 az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --settings FLASK_APP=todo_app/app
 
 Then you can go to http://<webapp_name>.azurewebsites.net/ to confirm that the app is running. 
+
+To see an example of this specific app hosted on Azure, go to https://chaostodo.azurewebsites.net
