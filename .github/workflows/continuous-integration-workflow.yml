@@ -84,4 +84,5 @@ jobs:
           az account show
           az group list
           pwd
-          az webapp list --query "[?state=='Running']"
+          curl -dH -X POST ${{ secrets.WEBHOOK_AZ }}
+
