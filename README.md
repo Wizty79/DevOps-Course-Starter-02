@@ -145,11 +145,8 @@ https://docs.docker.com/engine/reference/builder/#dockerignore-file
 ## Hosting the app on Azure
 
 First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home 
-Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, the Azure extension. 
+Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, install Azure by running:
 
-To add the Azure deploy to your CI/CD pipeline, you'll need to find your Azure client ID, tenant ID and subscription ID. You can find these when you log in to your Azure account on their site directly. https://portal.azure.com/#home 
-
-To Install Azure you can run this command: 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 And after this, you should be able to login by running this command:
@@ -160,8 +157,8 @@ However, if your having issues logging into Azure, you can run the command below
 az login --use-device-code
 
 After this have been done, it will provide you with a link to follow and a temp code to use on that page which will then authenticate.
- 
-Then  to create an app service plan, you cna run:
+
+Then to create an app service plan, you can run:
 
 az appservice plan create --resource-group <resource_group_name> -n <appservice_plan_name> --sku B1 --is-linux 
 
@@ -176,3 +173,4 @@ az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --set
 Then you can go to http://<webapp_name>.azurewebsites.net/ to confirm that the app is running. 
 
 To see an example of this specific app hosted on Azure, go to https://chaostodo.azurewebsites.net
+
