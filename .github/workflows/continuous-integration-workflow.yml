@@ -56,4 +56,4 @@ jobs:
     needs: [job-one, job-two]
     steps:
     - name: 'Run Azure CLI commands'
-      run: curl -dH -X POST \${{ secrets.WEBHOOK_AZ }}
+      run: curl -dH -X POST --fail \${{ secrets.WEBHOOK_AZ }}
