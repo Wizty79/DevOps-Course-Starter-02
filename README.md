@@ -142,8 +142,35 @@ Please note that in this code base the .env file have been added to a .dockerign
 See this link for more info regarding the use of the dockerignore file: 
 https://docs.docker.com/engine/reference/builder/#dockerignore-file
 
-## Launching the app with Heroku
+## Hosting the app on Azure
 
-To see the app working in Heroku, please go to this link: https://wisti.herokuapp.com/
+First you'll naturally have to setup a account for yourself on Azure. https://portal.azure.com/#home 
+Also to use Azure you'll need to install the Azure CLI, or if using Gitpod, install Azure by running:
 
-Please note that the order of the jobs in the Dockefile have been changed, this is due to that the heroku-deploy action don't have a solution for specifying a target, it will simply take the bottom one from the Docker file, so the desired one to use have been placed last for this reason. For future use, or updates, it would be suggested to check the marketplace actions to see if this have been updated.
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+And after this, you should be able to login by running this command:
+az login
+
+However, if your having issues logging into Azure, you can run the command below instead:
+
+az login --use-device-code
+
+After this have been done, it will provide you with a link to follow and a temp code to use on that page which will then authenticate.
+
+Then to create an app service plan, you can run:
+
+az appservice plan create --resource-group <resource_group_name> -n <appservice_plan_name> --sku B1 --is-linux 
+
+And, to create the app:
+
+az webapp create --resource-group <resource_group_name> --plan <appservice_plan_name> --name <webapp_name> --deployment-container-image-name <dockerhub_username>/todo-app:latest
+
+After this you can setup the enviroment variables via Azure site, or individually:
+
+az webapp config appsettings set -g <resource_group_name> -n <webapp_name> --settings FLASK_APP=todo_app/app
+
+Then you can go to http://<webapp_name>.azurewebsites.net/ to confirm that the app is running. 
+
+To see an example of this specific app hosted on Azure, go to https://chaostodo.azurewebsites.net
+
