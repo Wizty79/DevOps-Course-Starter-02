@@ -54,9 +54,6 @@ jobs:
     name: Azure deploy 
     runs-on: ubuntu-latest
     needs: [job-one, job-two]
-    permissions:
-      id-token: write
-      contents: read
     steps:
     - name: 'Run Azure CLI commands'
-      run: curl -dH -X POST --fail /${{ secrets.WEBHOOK_AZ }}
+      run: curl -dH -X POST /${{ secrets.WEBHOOK_AZ }}
