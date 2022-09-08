@@ -14,3 +14,13 @@ def get_mongo_db():
         "CORRELATIONID":os.getenv("CORRELATION_ID_DB")
     }
 
+    response = requests.get(url, params=querystring)
+
+    response_json = response.json()
+
+    return response_json
+
+
+
+
+# see link for suggestion https://stackoverflow.com/questions/44249604/how-to-read-data-from-azures-cosmosdb-in-python
