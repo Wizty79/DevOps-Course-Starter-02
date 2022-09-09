@@ -3,6 +3,7 @@ from azure.cosmos import cosmos_client #? possible solution
 import json #? possible solution
 import requests
 import os
+import certifi #? possible solution
 
 def get_mongo_db():
     url = PRIMARY_CONNECTION_STRING_DB
