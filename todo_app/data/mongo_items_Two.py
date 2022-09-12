@@ -7,10 +7,12 @@ import certifi #? possible solution
 
 def connect_mongo_db():
     client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
-    try:
-        client.server_info() # validate connection string
-    except pymongo.errors.ServerSelectionTimeoutError:
-        raise TimeoutError("Invalid API for MongoDB connection string or timed out when attempting to connect")
+    
+    response = requests.get(client)
+
+    response_json = response.json()
+
+    return response_json
 
 
 def create_mongo_todo_item():
@@ -22,4 +24,4 @@ def change_mongo_status():
     print("Updated document with _id {}: {}".format(document_id, collection.find_one({"_id": document_id})))
 
 
-#all need to be adapted! How? 
+
