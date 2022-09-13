@@ -9,9 +9,9 @@ client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
 db = client.chaostodo-db #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
+document_id = todos.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id 
 
 def connect_mongo_db():
-    #client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB) #is this line need?
     
     response = requests.get(client)
 
@@ -22,19 +22,14 @@ def connect_mongo_db():
 
 def create_mongo_todo_item():
     new_todo_title = request.form['todo-name']
-    
-    document_id = todos.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id 
-    #move documnent_id out of function and into root of file? 
-    
+        
     response = requests.request(client, document_id)
 
 
 def change_mongo_status():
     card_id = request.form['todo-id']
     
-    collection = dones.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}})
+    change_status = dones.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}})
     
-    response = requests.request(client, collection)
-
-
+    response = requests.request(client, change_status)
 
