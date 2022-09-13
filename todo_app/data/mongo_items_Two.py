@@ -5,12 +5,13 @@ import requests
 import os
 import certifi #? possible solution
 
+client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
 db = client.chaostodo-db #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
 
 def connect_mongo_db():
-    client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
+    client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB) #is this line need?
     
     response = requests.get(client)
 
