@@ -7,9 +7,10 @@ import certifi #? possibly need
 
 client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
 db = client.chaostodo-db #my database name
-document_id = todos.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id # replace card, but with what?
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
+document_id = todos.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id # replace card, but with what?
+#document_id_done = dones.insert_one({item()})
 
 def connect_mongo_db():
     
