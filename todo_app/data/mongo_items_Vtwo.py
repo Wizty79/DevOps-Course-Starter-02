@@ -25,7 +25,7 @@ def create_mongo_todo_item():
     
     new_todo_title = request.form['todo-name']
         
-    response = requests.request(client, document_id)
+    response = requests.request("POST", client, document_id)
 
 
 def change_mongo_status():
@@ -34,5 +34,5 @@ def change_mongo_status():
     
     change_status = dones.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}}) 
     
-    response = requests.request(client, change_status)
+    response = requests.request("PUT", client, change_status)
 
