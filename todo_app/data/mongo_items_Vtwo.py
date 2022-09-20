@@ -10,7 +10,7 @@ db = client.chaostodo-db #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
 document_id = todos.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id # replace card, but with what?
-#document_id_done = dones.insert_one({item()})
+#document_id_dones = dones.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id # replace card, but with what?
 
 def connect_mongo_db():
     
