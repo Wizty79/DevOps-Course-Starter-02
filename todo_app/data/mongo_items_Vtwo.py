@@ -5,7 +5,7 @@ import requests
 import os
 import certifi #? possibly need
 
-client = pymongo.MongoClient(PRIMARY_CONNECTION_STRING_DB)
+client = pymongo.MongoClient("PRIMARY_CONNECTION_STRING_DB")
 db = client.chaostodo-db #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
