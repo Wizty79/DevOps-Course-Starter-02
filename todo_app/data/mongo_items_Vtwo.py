@@ -6,7 +6,7 @@ import os
 import certifi #? possibly need
 
 client = pymongo.MongoClient("PRIMARY_CONNECTION_STRING_DB")
-db = client.chaostodo-db #my database name
+db = client.chaostododb #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
 document_id = todos.insert_one({"_id": document_id}).inserted_id # replace card, but with what?
