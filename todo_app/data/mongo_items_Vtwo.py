@@ -33,7 +33,7 @@ def create_mongo_todo_item():
 def change_mongo_status():
     #document_id = dones.insert_one({"_id": document_id}).inserted_id
     
-    card_id = request.form['todo-id']
+    card_id = request.form['todo-id'] #replace card with _id? 
     
     #change_status = dones.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}}) 
     change_status = dones.update_one(update)
