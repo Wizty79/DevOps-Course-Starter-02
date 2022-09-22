@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from azure.cosmos import cosmos_client #? possibly need
+#from azure.cosmos import cosmos_client #? possibly need
+from pymongo import MongoClient
 import json #? possibly need 
 import requests
 import os
