@@ -30,7 +30,7 @@ def create_app():
     @app.route('/create-todo', methods=['Post'])
     def create_new_todo():
     
-        response = mongo_items_Vtwo.connect_mongo_db()
+        response = mongo_items_Vtwo.create_mongo_todo_item()
         
         return index()
 
