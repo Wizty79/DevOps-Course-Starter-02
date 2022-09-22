@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
 #from azure.cosmos import cosmos_client 
 from pymongo import MongoClient
-import json #? possibly need 
+#import json #? possibly need 
 import requests
 import os
-import certifi #? possibly need
+#import certifi #? possibly need
 
 client = MongoClient(r"PRIMARY_CONNECTION_STRING_DB")
 db = client.chaostododb #my database name

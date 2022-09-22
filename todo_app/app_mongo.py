@@ -20,7 +20,7 @@ def create_app():
 
         item_view_model = ViewModel(items)
 
-        for trello_list in response_json: #from get_trello_cards URL? replace with prim commect string ref?
+        for trello_list in response_json: # replace with _id? or document_id?
             for card in trello_list['cards']:
                 item = Item.from_trello_card(card, trello_list)
                 items.append(item)
@@ -30,7 +30,7 @@ def create_app():
     @app.route('/create-todo', methods=['Post'])
     def create_new_todo():
     
-        response = trello_items.create_todo()
+        response = mongo_items_Vtwo.connect_mongo_db()
         
         return index()
 
@@ -38,7 +38,7 @@ def create_app():
     @app.route('/update_status', methods=['POST'])
     def update_status():
         
-        response = trello_items.change_status()
+        response = mongo_items_Vtwo.change_mongo_status()
 
         return index()
     return app
