@@ -10,7 +10,7 @@ client = MongoClient(r"PRIMARY_CONNECTION_STRING_DB")
 db = client.chaostododb #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
-document_id = todos.insert_one({"_id": document_id}).inserted_id # replace card, but with what?
+#document_id = todos.insert_one({"_id": document_id}).inserted_id
 #document_id_dones = dones.insert_one({Item(card['id'], card['name'], list['name'])}).inserted_id # replace card, but with what?
 
 def connect_mongo_db():
@@ -23,6 +23,7 @@ def connect_mongo_db():
 
 
 def create_mongo_todo_item():
+    document_id = todos.insert_one({"_id": document_id}).inserted_id
     
     new_todo_title = request.form['todo-name']
         
@@ -30,6 +31,7 @@ def create_mongo_todo_item():
 
 
 def change_mongo_status():
+    document_id = dones.insert_one({"_id": document_id}).inserted_id
     
     card_id = request.form['todo-id']
     
