@@ -20,9 +20,9 @@ def create_app():
 
         item_view_model = ViewModel(items)
 
-        for trello_list in response_json: # replace with _id? or document_id?
-            for card in trello_list['cards']:
-                item = Item.from_trello_card(card, trello_list)
+        for _id in response_json: # replace with _id? or document_id?
+            for document_id in _id["_id": document_id]:
+                item = Item.from_trello_card(document_id, _id)
                 items.append(item)
 
         return render_template('index.html', view_model=item_view_model)
