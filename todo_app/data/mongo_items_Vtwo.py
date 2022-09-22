@@ -6,7 +6,7 @@ import requests
 import os
 import certifi #? possibly need
 
-client = MongoClient("PRIMARY_CONNECTION_STRING_DB")
+client = MongoClient(r"PRIMARY_CONNECTION_STRING_DB")
 db = client.chaostododb #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
