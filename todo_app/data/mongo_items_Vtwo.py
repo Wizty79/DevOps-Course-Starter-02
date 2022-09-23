@@ -18,7 +18,7 @@ def get(post_id):
 
 def connect_mongo_db():
     
-    response = requests.get(client)
+    response = requests.get(client, get)
 
     response_json = response.json()
 
