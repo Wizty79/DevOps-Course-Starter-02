@@ -9,7 +9,9 @@ db = client.chaostodoSaved #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
 
-# The web framework gets post_id from the URL and passes it as a string
+#A common task in web applications is to get an ObjectId from the request URL and find the matching document. 
+#It’s necessary in this case to convert the ObjectId from a string before passing it to find_one:
+#The web framework gets post_id from the URL and passes it as a string
 def get(post_id):
     # Convert from string to ObjectId:
     document = client.db.collection.find_one({'_id': ObjectId(post_id)})
