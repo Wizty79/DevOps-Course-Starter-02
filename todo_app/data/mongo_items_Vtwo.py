@@ -4,7 +4,7 @@ import requests
 import os
 
 client = MongoClient(r"PRIMARY_CONNECTION_STRING_DB")
-db = client.chaostododb #my database name
+db = client.chaostodoSaved #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
 
