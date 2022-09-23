@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 import requests
 import os
 
@@ -7,6 +8,11 @@ client = MongoClient(r"PRIMARY_CONNECTION_STRING_DB")
 db = client.chaostodoSaved #my database name
 todos = db.ToDoItems #collection for todo items
 dones = db.DoneItems #collection for done items
+
+# The web framework gets post_id from the URL and passes it as a string
+def get(post_id):
+    # Convert from string to ObjectId:
+    document = client.db.collection.find_one({'_id': ObjectId(post_id)})
 
 def connect_mongo_db():
     
