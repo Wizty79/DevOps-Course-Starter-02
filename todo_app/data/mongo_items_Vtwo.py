@@ -37,7 +37,7 @@ def change_mongo_status():
     card_id = request.form['todo-id']
     
     #change_status = dones.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}}) 
-    change_status = dones.update_one(update) #2 parameters needed, a filter to select correct item and and update directory
+    change_status = dones.update_one(todos, update) #2 parameters needed, a filter to select correct item and and update directory
                                      
     response = requests.request("PUT", client, change_status)
 
