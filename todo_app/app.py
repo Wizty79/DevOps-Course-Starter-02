@@ -4,7 +4,7 @@ from todo_app.flask_config import Config
 import requests  
 import os
 from todo_app.data.item import Item
-import todo_app.data.trello_items as trello_items
+import todo_app.data.mongo_items_Vtwo as mongo_items_Vtwo
 from todo_app.data.view_model import ViewModel
 
 
@@ -14,23 +14,21 @@ def create_app():
     
     @app.route('/')
     def index():
-        response_json = trello_items.get_trello_cards()
+        mongo_items = mongo_items_Vtwo.get_mongo_items()
 
         items = []
 
-        item_view_model = ViewModel(items)
-
-        for trello_list in response_json:
-            for card in trello_list['cards']:
-                item = Item.from_trello_card(card, trello_list)
+        for mongo_item in mongo_items: 
+                item = Item.from_mongo_item(mongo_item)
                 items.append(item)
+        item_view_model = ViewModel(items)
 
         return render_template('index.html', view_model=item_view_model)
     
     @app.route('/create-todo', methods=['Post'])
     def create_new_todo():
     
-        response = trello_items.create_todo()
+        response = mongo_items_Vtwo.create_mongo_todo_item()
         
         return index()
 
@@ -38,7 +36,7 @@ def create_app():
     @app.route('/update_status', methods=['POST'])
     def update_status():
         
-        response = trello_items.change_status()
+        response = mongo_items_Vtwo.change_mongo_status()
 
         return index()
     return app
