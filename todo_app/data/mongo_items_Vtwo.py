@@ -26,7 +26,8 @@ def connect_mongo_db():
 
 
 def create_mongo_todo_item():
-    document_id = todos.insert_one({"_id": document_id}).inserted_id
+    collection = db.todos
+    document_id = collection.insert_one({"_id": document_id}).inserted_id
     
     new_todo_title = request.form['todo-name']
         
