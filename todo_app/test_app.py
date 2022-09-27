@@ -13,3 +13,12 @@ def client():
         with test_app.test_client() as client:
             yield client
 
+def test_find_one(self):
+        collection = mongomock.MongoClient().db.collection
+        obj = {'test_find_one': 'test_value'}
+        collection.insert(obj)
+
+        result_obj = self.hook.find(collection, {}, find_one=True)
+        result_obj = {result: result_obj[result] for result in result_obj}
+        self.assertEqual(obj, result_obj) 
+
