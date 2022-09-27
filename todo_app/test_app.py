@@ -1,7 +1,7 @@
 import pytest, requests, os
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
-import mongomock
+import mongomock as mongomock
 
 @pytest.fixture
 def client():
