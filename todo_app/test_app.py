@@ -13,5 +13,10 @@ def client():
         with test_app.test_client() as client:
             yield client
 
+def test_index_page(monkeypatch, client):
+    monkeypatch.setattr(requests, 'get', get_lists_stub)
+    response = client.get('/')
 
+    assert response.status_code == 200
+    assert 'Test card' in response.data.decode()
 
