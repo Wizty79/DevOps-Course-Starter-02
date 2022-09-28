@@ -16,8 +16,8 @@ def client():
 
 def test_index_page(client):
     
-    create_mongo_todo_item('My test Task')
-    
+    create_mongo_todo_item('My test Task') # can't use as Ben coded his differently, see video
+                                           #mine don't take positional arguments
     response = client.get('/')
     
     response_html = response.data.decode()
