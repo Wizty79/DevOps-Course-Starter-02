@@ -14,8 +14,8 @@ def client():
             yield client
 
 def test_index_page(monkeypatch, client):
-    monkeypatch.setattr(requests, 'get', get_lists_stub)
-    response = client.get('/')
+    monkeypatch.setattr(requests, 'get', get_lists_stub) #setattr changing
+    response = client.get('/') # the value of the get property of the requests object
 
     assert response.status_code == 200
     assert 'Test card' in response.data.decode()
