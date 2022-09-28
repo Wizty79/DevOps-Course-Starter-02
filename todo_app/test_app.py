@@ -2,6 +2,7 @@ import pytest, requests, os
 import mongomock
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
+from todo_app.data.mongo_items_Vtwo import create_new_todo
 
 @pytest.fixture
 def client():
@@ -13,10 +14,16 @@ def client():
         with test_app.test_client() as client:
             yield client
 
-def test_index_page(monkeypatch, client):
-    monkeypatch.setattr(requests, 'get', get_lists_stub) #setattr changing
-    response = client.get('/') # the value of the get property of the requests object
-
-    assert response.status_code == 200
-    assert 'Test card' in response.data.decode()
-
+@mongomock
+def test_index_page(client):
+    
+    create_new_todo('My test Task')
+    
+    response = client.get('/')
+    
+    response_html = response.data.decode()
+    assert 'My test Task' in response_html
+    
+    
+    
+    
