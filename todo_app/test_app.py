@@ -2,7 +2,7 @@ import pytest, requests, os
 import mongomock
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
-from todo_app.data.mongo_items_Vtwo import create_new_todo
+from todo_app.data.mongo_items_Vtwo import create_mongo_todo_item
 
 @pytest.fixture
 def client():
@@ -14,14 +14,14 @@ def client():
         with test_app.test_client() as client:
             yield client
 
-@mongomock
 def test_index_page(client):
     
-    create_new_todo('My test Task')
+    create_mongo_todo_item('My test Task')
     
     response = client.get('/')
     
     response_html = response.data.decode()
+    assert response.status_code == 200
     assert 'My test Task' in response_html
     
     
