@@ -1,5 +1,6 @@
 import pytest, requests, os
 import mongomock
+from pymongo import MongoClient
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
 from todo_app.data.mongo_items_Vtwo import create_mongo_todo_item
@@ -16,8 +17,8 @@ def client():
 
 def test_index_page(client):
     
-    create_mongo_todo_item('My test Task') # can't use as Ben coded his differently, see video
-                                           #mine don't take positional arguments
+    pymongo.MongoClient.insert_one({"name": 'My test todo'})
+
     response = client.get('/')
     
     response_html = response.data.decode()
