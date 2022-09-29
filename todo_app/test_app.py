@@ -1,6 +1,6 @@
 import pytest, requests, os
 import mongomock
-from pymongo import MongoClient
+import pymongo
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
 from todo_app.data.mongo_items_Vtwo import create_mongo_todo_item
@@ -17,7 +17,7 @@ def client():
 
 def test_index_page(client):
     
-    pymongo.MongoClient.insert_one({"name": 'My test todo'})
+    pymongo.MongoClient.client.insert_one({"name": 'My test Task'})
 
     response = client.get('/')
     
