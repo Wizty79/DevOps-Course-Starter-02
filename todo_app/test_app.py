@@ -16,9 +16,16 @@ def client():
             yield client
 
 def test_index_page(client):
-    
-    pymongo.MongoClient(client,'My test Task')
+    new_mongo_item = {
+        'task': 'My test Task',
+        'status': "To Do"
+    }
+    client = pymongo.MongoClient(os.getenv('PRIMARY_CONNECTION_STRING_DB'))
+    database = client[os.getenv('HOST_DB')]
+    collection = database['items']
 
+    collection.insert_one(new_mongo_item)
+    
     response = client.get('/')
     
     response_html = response.data.decode()
