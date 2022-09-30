@@ -17,7 +17,7 @@ def client():
 
 def test_index_page(client):
     
-    pymongo.MongoClient.client.insert_one({"name": 'My test Task'})
+    pymongo.MongoClient(client,'My test Task')
 
     response = client.get('/')
     
