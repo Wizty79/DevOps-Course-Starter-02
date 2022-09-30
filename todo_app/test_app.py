@@ -3,7 +3,6 @@ import mongomock
 import pymongo
 from dotenv import load_dotenv, find_dotenv
 from todo_app import app
-from todo_app.data.mongo_items_Vtwo import create_mongo_todo_item
 
 @pytest.fixture
 def client():
@@ -20,7 +19,7 @@ def test_index_page(client):
         'task': 'My test Task',
         'status': "To Do"
     }
-    client = pymongo.MongoClient(os.getenv('PRIMARY_CONNECTION_STRING_DB'))
+    client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
     database = client[os.getenv('HOST_DB')]
     collection = database['items']
 
@@ -31,7 +30,3 @@ def test_index_page(client):
     response_html = response.data.decode()
     assert response.status_code == 200
     assert 'My test Task' in response_html
-    
-    
-    
-    
