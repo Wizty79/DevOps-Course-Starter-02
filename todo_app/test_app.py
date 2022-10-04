@@ -20,8 +20,8 @@ def test_index_page(client):
         'status': "To Do"
     }
     mog_client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
-    database = mog_client[os.getenv('HOST_DB')]
-    collection = database['items']
+    database = mog_client[os.getenv('chaostodoSaved')]
+    collection = database['todos']
 
     collection.insert_one(new_mongo_item)
     
