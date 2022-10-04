@@ -1,15 +1,17 @@
 from flask import Flask, render_template, request
-from pymongo import MongoClient
+import pymongo
 from bson.objectid import ObjectId
 import requests
 import os
 
-client = MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
+client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
 db = client.chaostodoSaved
 todos = db.ToDoItems
 
 def get_mongo_items():
-    
+    client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
+    db = client.chaostodoSaved
+    todos = db.ToDoItems
     return todos.find()
 
 def create_mongo_todo_item():
@@ -21,4 +23,5 @@ def change_mongo_status():
     card_id = request.form['todo-id']
     
     change_status = todos.update_one({"_id": card_id}, {"$set":{"status": "Done"}}) 
+    
     
