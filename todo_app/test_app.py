@@ -25,7 +25,7 @@ def test_index_page(client):
 
     collection.insert_one(new_mongo_item)
     
-    response = mog_client.get('/')
+    response = client.get('/')
     
     response_html = response.data.decode()
     assert response.status_code == 200
