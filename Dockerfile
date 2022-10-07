@@ -18,6 +18,7 @@ FROM basepy as devpy
 ENTRYPOINT poetry run flask run --host 0.0.0.0
 
 FROM basepy as devtestpy
+COPY .env.test .env.test
 ENTRYPOINT poetry run pytest
 
 FROM basepy as prodpy
