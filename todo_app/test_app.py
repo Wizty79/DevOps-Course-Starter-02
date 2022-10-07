@@ -16,12 +16,12 @@ def client():
 
 def test_index_page(client):
     new_mongo_item = {
-        'task': 'My test Task',
+        'name': 'My test Task',
         'status': "To Do"
     }
     mog_client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
-    database = mog_client[os.getenv('chaostodoSaved')]
-    collection = database['todos']
+    database = mog_client.chaostodoSaved
+    collection = database['ToDoItems']
 
     collection.insert_one(new_mongo_item)
     
