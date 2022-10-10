@@ -70,9 +70,9 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 
 ## Testing the App
 
-If you are experiencing issues with the App after making your own changes, you'll find two unit tests are ready to run to test that the View_model class is sorting the items as intended. You'll also find an integration test intended to test the app.py code base itself and the Trello API calls it makes. 
+If you are experiencing issues with the App after making your own changes, you'll find two unit tests are ready to run to test that the View_model class is sorting the items as intended. You'll also find an integration test intended to test the app.py code base itself. 
 
-If not already install, you'll need pytest, you can do this by running the command(please not if your using a virtual machine you may need to install this every time you start a new session):
+If not already install, you'll need pytest, you can do this by running the command (please note if your using a virtual machine you may need to install this every time you start a new session):
 ```bash
 $ pip install pytest 
 ```
