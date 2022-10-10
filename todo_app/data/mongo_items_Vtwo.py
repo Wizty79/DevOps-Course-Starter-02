@@ -4,23 +4,25 @@ from bson.objectid import ObjectId
 import requests
 import os
 
-def get_mongo_items():
-    client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
-    db = client.chaostodoSaved
-    todos = db.ToDoItems
-    return todos.find()
-
-def create_mongo_todo_item():
+def mongo_connect():
     client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
     db = client.chaostodoSaved
     todos = db.ToDoItems
     
+    return todos
+
+def get_mongo_items():
+    todos = mongo_connect()
+    
+    return todos.find()
+
+def create_mongo_todo_item():
+    todos = mongo_connect()
+    
     todos.insert_one({"name": request.form['todo-name'], "status": "To Do"})
 
 def change_mongo_status():
-    client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
-    db = client.chaostodoSaved
-    todos = db.ToDoItems
+    todos = mongo_connect()
     
     card_id = request.form['todo-id']
     
