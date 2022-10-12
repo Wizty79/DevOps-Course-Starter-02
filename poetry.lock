@@ -79,6 +79,18 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-login"
+version = "0.6.2"
+description = "User authentication and session management for Flask."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Flask = ">=1.0.4"
+Werkzeug = ">=1.0.1"
+
+[[package]]
 name = "idna"
 version = "3.3"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -340,7 +352,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "b3e0f2eefe0683938a8435fa87200838fe8943d9653b4738f06b7447d20ce93e"
+content-hash = "5394491d217100e9d7e9b4f859d9d9a7c4babe5257eb5d5ba0bd4ca5efb6c4c0"
 
 [metadata.files]
 atomicwrites = []
@@ -350,6 +362,7 @@ charset-normalizer = []
 click = []
 colorama = []
 flask = []
+flask-login = []
 idna = []
 importlib-metadata = []
 iniconfig = []
