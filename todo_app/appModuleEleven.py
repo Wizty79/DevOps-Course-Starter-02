@@ -26,7 +26,7 @@ def load_user(user_id):
 
 login_manager.init_app(app)
 
-@app.route.login_required('/') #question syntax and indentation
+@app.route.login_required('/') #question syntax and indentation, why do this have to be further in but the other routes don't? 
 def index():
     mongo_items = mongo_items_Vtwo.get_mongo_items()
 
