@@ -8,6 +8,10 @@ import os
 from todo_app.data.item import Item
 import todo_app.data.mongo_items_Vtwo as mongo_items_Vtwo
 from todo_app.data.view_model import ViewModel
+from flask.ext.login import LoginManager
+
+login_manager = LoginManager()
+login_manager.init_app(app) #? 
 
 
 def create_app():
