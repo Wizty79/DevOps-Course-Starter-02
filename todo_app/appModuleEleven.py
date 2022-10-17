@@ -23,7 +23,9 @@ def create_app():
     @login_manager.unauthorized_handler
     def unauthenticated():
         pass # Add logic to redirect to the GitHub OAuth flow when unauthenticated
-            # Request a user's GitHub identity 
+            # Request a user's GitHub identity
+            # Need to return a redirect responce to the below URL, along with the correct query parameters 
+            # parameters = client_id, redirect_uri?,allow_signup default is true,
             # GET https://github.com/login/oauth/authorize
 
 
