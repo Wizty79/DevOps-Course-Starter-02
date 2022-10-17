@@ -26,6 +26,7 @@ def create_app():
             # Request a user's GitHub identity
             # Need to return a redirect responce to the below URL, along with the correct query parameters 
             # parameters = client_id, redirect_uri?,allow_signup default is true,
+            # (client_id=(os.getenv("Client_ID"), state='lkjbnvb546rfgh4764rtbm', allow_signup=flase)) 
             # GET https://github.com/login/oauth/authorize
 
 
