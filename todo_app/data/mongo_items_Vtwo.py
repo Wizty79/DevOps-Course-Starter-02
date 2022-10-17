@@ -24,8 +24,8 @@ def create_mongo_todo_item():
 def change_mongo_status():
     todos = mongo_connect()
     
-    card_id = request.form['todo-id']
+    mongo_id = request.form['todo-id']
     
-    change_status = todos.update_one({"_id": card_id}, {"$set":{"status": "Done"}}) 
+    change_status = todos.update_one({"_id": mongo_id}, {"$set":{"status": "Done"}}) 
     
     
