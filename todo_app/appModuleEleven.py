@@ -20,18 +20,18 @@ def create_app():
     
     login_manager = LoginManager()
 
-@login_manager.unauthorized_handler
-def unauthenticated():
-    pass # Add logic to redirect to the GitHub OAuth flow when unauthenticated
-         # Request a user's GitHub identity 
-         # GET https://github.com/login/oauth/authorize
+    @login_manager.unauthorized_handler
+    def unauthenticated():
+        pass # Add logic to redirect to the GitHub OAuth flow when unauthenticated
+            # Request a user's GitHub identity 
+            # GET https://github.com/login/oauth/authorize
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    pass # We will return to this later
+    @login_manager.user_loader
+    def load_user(user_id):
+        pass # We will return to this later
 
-login_manager.init_app(app)
+    login_manager.init_app(app)
 
 @app.route.login_required('/') #question syntax and indentation, why do this have to be further in but the other routes don't? 
 def index():
