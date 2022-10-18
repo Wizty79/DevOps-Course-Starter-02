@@ -1,7 +1,5 @@
 ##ny app.py
-
 from flask import Flask, render_template, request
-
 from todo_app.flask_config import Config
 import requests  
 import os
@@ -15,7 +13,6 @@ import webbrowser
 login_manager = LoginManager()
 login_manager.init_app(app) #? 
 
-
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
@@ -24,6 +21,9 @@ def create_app():
 
     @login_manager.unauthorized_handler
     def unauthenticated():
+            # Add logic to redirect to the GitHub OAuth flow when unauthenticated
+            # Request a user's GitHub identity
+            
             CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
             CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
             REDIRECT_URI = os.getenv("REDIRECT_URI")
@@ -35,16 +35,10 @@ def create_app():
             }
             
             endpoint = "https://github.com/login/oauth/authorize"
-            
-            # Add logic to redirect to the GitHub OAuth flow when unauthenticated
-            # Request a user's GitHub identity
-            # Need to return a redirect responce to the below URL, along with the correct query parameters 
-            # parameters = client_id, redirect_uri?,allow_signup default is true,
-            # (client_id=(os.getenv("Client_ID"), state='lkjbnvb546rfgh4764rtbm', allow_signup=flase)) 
-            # GET https://github.com/login/oauth/authorize
+            endpoint = endpoint + urlencode(params)
+            webbrowser.open(endpoint)
             
             
-
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -52,19 +46,19 @@ def create_app():
 
     login_manager.init_app(app)
 
-@app.route.login_required('/') #question syntax and indentation, why do this have to be further in but the other routes don't? 
-def index():
-    mongo_items = mongo_items_Vtwo.get_mongo_items()
+    @app.route.login_required('/') #question syntax and indentation
+    def index():
+        mongo_items = mongo_items_Vtwo.get_mongo_items()
 
-    items = []
+        items = []
 
-    for mongo_item in mongo_items: 
-            item = Item.from_mongo_item(mongo_item)
-            items.append(item)
-    item_view_model = ViewModel(items)
+        for mongo_item in mongo_items: 
+                item = Item.from_mongo_item(mongo_item)
+                items.append(item)
+        item_view_model = ViewModel(items)
 
-    return render_template('index.html', view_model=item_view_model)
-    
+        return render_template('index.html', view_model=item_view_model)
+        
     @app.route.login_required('/create-todo', methods=['Post']) 
     def create_new_todo():
 
