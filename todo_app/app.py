@@ -4,7 +4,7 @@ from todo_app.flask_config import Config
 import requests  
 import os
 from todo_app.data.item import Item
-import todo_app.data.mongo_items_Vtwo as mongo_items_Vtwo
+import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 
 
@@ -14,7 +14,7 @@ def create_app():
     
     @app.route('/')
     def index():
-        mongo_items = mongo_items_Vtwo.get_mongo_items()
+        mongo_items = mongo_items_collect.get_mongo_items()
 
         items = []
 
@@ -28,7 +28,7 @@ def create_app():
     @app.route('/create-todo', methods=['Post'])
     def create_new_todo():
     
-        response = mongo_items_Vtwo.create_mongo_todo_item()
+        response = mongo_items_collect.create_mongo_todo_item()
         
         return index()
 
@@ -36,7 +36,7 @@ def create_app():
     @app.route('/update_status', methods=['POST'])
     def update_status():
         
-        response = mongo_items_Vtwo.change_mongo_status()
+        response = mongo_items_collect.change_mongo_status()
 
         return index()
     return app
