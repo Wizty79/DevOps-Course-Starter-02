@@ -32,6 +32,8 @@ def create_app():
                 "scope": "user"
             }
             
+            endpoint = "https://github.com/login/oauth/authorize"
+            
             # Add logic to redirect to the GitHub OAuth flow when unauthenticated
             # Request a user's GitHub identity
             # Need to return a redirect responce to the below URL, along with the correct query parameters 
