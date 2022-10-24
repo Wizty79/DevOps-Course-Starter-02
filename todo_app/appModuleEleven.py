@@ -9,10 +9,6 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager
 from urllib.parse import urlencode
 
-#import webbrowser
-#login_manager = LoginManager()
-#login_manager.init_app(app) #? 
-
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
@@ -21,9 +17,6 @@ def create_app():
 
     @login_manager.unauthorized_handler
     def unauthenticated():
-            # Add logic to redirect to the GitHub OAuth flow when unauthenticated
-            # Request a user's GitHub identity
-            
             CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
             CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
             REDIRECT_URI = os.getenv("REDIRECT_URI")
@@ -36,7 +29,6 @@ def create_app():
             
             endpoint = "https://github.com/login/oauth/authorize"
             endpoint = endpoint + urlencode(params)
-            #webbrowser.open(endpoint)
             return flask.redirect(Flask.url_for('endpoint'))
             
 
@@ -46,7 +38,7 @@ def create_app():
 
     login_manager.init_app(app)
 
-    @app.route.login_required('/') #question syntax and indentation
+    @app.route.login_required('/')
     def index():
         mongo_items = mongo_items_Vtwo.get_mongo_items()
 
