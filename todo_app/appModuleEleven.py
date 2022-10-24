@@ -6,12 +6,12 @@ import os
 from todo_app.data.item import Item
 import todo_app.data.mongo_items_Vtwo as mongo_items_Vtwo
 from todo_app.data.view_model import ViewModel
-from flask.ext.login import LoginManager
+from flask_login import LoginManager
 from urllib.parse import urlencode
-import webbrowser
 
-login_manager = LoginManager()
-login_manager.init_app(app) #? 
+#import webbrowser
+#login_manager = LoginManager()
+#login_manager.init_app(app) #? 
 
 def create_app():
     app = Flask(__name__)
@@ -36,8 +36,8 @@ def create_app():
             
             endpoint = "https://github.com/login/oauth/authorize"
             endpoint = endpoint + urlencode(params)
-            webbrowser.open(endpoint)
-            
+            #webbrowser.open(endpoint)
+            return flask.redirect(Flask.url_for('endpoint'))
             
 
     @login_manager.user_loader
