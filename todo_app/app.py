@@ -38,7 +38,8 @@ def create_app():
 
     login_manager.init_app(app)
 
-    @app.route.login_required('/')
+    @app.route('/')
+    @login_required
     def index():
         mongo_items = mongo_items_Vtwo.get_mongo_items()
 
@@ -51,7 +52,8 @@ def create_app():
 
         return render_template('index.html', view_model=item_view_model)
         
-    @app.route.login_required('/create-todo', methods=['Post']) 
+    @app.route('/create-todo', methods=['Post'])
+    @login_required
     def create_new_todo():
 
         response = mongo_items_Vtwo.create_mongo_todo_item()
@@ -59,7 +61,8 @@ def create_app():
         return index()
 
 
-    @app.route.login_required('/update_status', methods=['POST']) 
+    @app.route('/update_status', methods=['POST'])
+    @login_required
     def update_status():
         
         response = mongo_items_Vtwo.change_mongo_status()
