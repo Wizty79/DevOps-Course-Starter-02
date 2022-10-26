@@ -7,7 +7,6 @@ import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required
 from urllib.parse import urlencode
-import flask
 
 def create_app():
     app = Flask(__name__)
@@ -27,9 +26,9 @@ def create_app():
                 "scope": "user"
             }
             
-            endpoint = "https://github.com/login/oauth/authorize"
+            endpoint = "GET https://github.com/login/oauth/authorize"
             endpoint = endpoint + urlencode(params)
-            return flask.redirect(Flask.url_for('endpoint'))
+            return flask.redirect('endpoint')
             
 
     @login_manager.user_loader
