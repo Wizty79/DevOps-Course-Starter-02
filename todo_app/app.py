@@ -7,6 +7,7 @@ import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required
 from urllib.parse import urlencode
+import flask
 
 def create_app():
     app = Flask(__name__)
@@ -31,11 +32,11 @@ def create_app():
             return flask.redirect(Flask.url_for('endpoint'))
             
 
-            @login_manager.user_loader
-            def load_user(user_id):
-                pass # We will return to this later
+    @login_manager.user_loader
+    def load_user(user_id):
+        pass # We will return to this later
 
-            login_manager.init_app(app)
+    login_manager.init_app(app)
 
     @app.route('/')
     @login_required
