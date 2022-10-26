@@ -9,6 +9,10 @@ from flask_login import LoginManager, login_required
 from urllib.parse import urlencode
 import flask
 
+class User(userMixin):
+        def __init__(self, id):
+            self.id = id
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
@@ -54,8 +58,27 @@ def create_app():
         headers = {
             "Accept": "application/json"
         }
-
-    response = request.post(access_token_url, params = query_params, headers = headers)
+    
+    #?#response = request.post(access_token_url, params = query_params, headers = headers)
+        access_token_response = request.post(access_token_url, parms = query_params, headers = headers)
+    
+        access_token = access_token_response.json()['access_token']
+        
+        user_info_url = "https://api.github.com/user"
+        
+        auth_headers = {
+            "Authorization": f"Bearer {access_token}"
+        }
+    
+        user_info_response = request.get(user_info_url, headares = auth_headers)
+        
+        user_id = user_info_response.json()['id']
+        
+        user = User(user_id)
+        
+        login_user(user)
+        
+        return redirect('/')
 
     @app.route('/create-todo', methods=['Post'])
     @login_required
