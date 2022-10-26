@@ -7,9 +7,9 @@ import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin
 from urllib.parse import urlencode
-#import flask
+import flask
 
-class User(userMixin):
+class User(UserMixin):
         def __init__(self, id):
             self.id = id
 
@@ -22,7 +22,7 @@ def create_app():
     @login_manager.unauthorized_handler
     def unauthenticated():
         redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_CLIENT_ID')}"
-        return redirect(redirect_url)
+        return redirect(redirect_url) #error redirect is not defined?
 
 
     @login_manager.user_loader
