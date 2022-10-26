@@ -32,11 +32,11 @@ def create_app():
             return flask.redirect(Flask.url_for('endpoint'))
             
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        pass # We will return to this later
+            @login_manager.user_loader
+            def load_user(user_id):
+                pass # We will return to this later
 
-    login_manager.init_app(app)
+            login_manager.init_app(app)
 
     @app.route('/')
     @login_required
@@ -69,7 +69,7 @@ def create_app():
 
         return index()
     return app
- 
+
 
 
 
