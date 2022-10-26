@@ -5,9 +5,9 @@ import os
 from todo_app.data.item import Item
 import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, login_required, UserMixin
 from urllib.parse import urlencode
-import flask
+#import flask
 
 class User(userMixin):
         def __init__(self, id):
@@ -27,7 +27,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
-        pass # We will return to this later
+        return user(user_id)
 
     login_manager.init_app(app)
 
@@ -58,8 +58,7 @@ def create_app():
         headers = {
             "Accept": "application/json"
         }
-    
-    #?#response = request.post(access_token_url, params = query_params, headers = headers)
+        
         access_token_response = request.post(access_token_url, parms = query_params, headers = headers)
     
         access_token = access_token_response.json()['access_token']
