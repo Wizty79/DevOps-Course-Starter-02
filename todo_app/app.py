@@ -5,7 +5,7 @@ import os
 from todo_app.data.item import Item
 import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
-from flask_login import LoginManager
+from flask_login import LoginManager, login_required
 from urllib.parse import urlencode
 
 def create_app():
