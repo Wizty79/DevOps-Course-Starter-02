@@ -1,10 +1,9 @@
-##ny app.py
 from flask import Flask, render_template, request
 from todo_app.flask_config import Config
 import requests  
 import os
 from todo_app.data.item import Item
-import todo_app.data.mongo_items_Vtwo as mongo_items_Vtwo
+import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager
 from urllib.parse import urlencode
@@ -41,7 +40,7 @@ def create_app():
     @app.route('/')
     @login_required
     def index():
-        mongo_items = mongo_items_Vtwo.get_mongo_items()
+        mongo_items = mongo_items_collect.get_mongo_items()
 
         items = []
 
@@ -56,7 +55,7 @@ def create_app():
     @login_required
     def create_new_todo():
 
-        response = mongo_items_Vtwo.create_mongo_todo_item()
+        response = mongo_items_collect.create_mongo_todo_item()
         
         return index()
 
@@ -65,7 +64,7 @@ def create_app():
     @login_required
     def update_status():
         
-        response = mongo_items_Vtwo.change_mongo_status()
+        response = mongo_items_collect.change_mongo_status()
 
         return index()
     return app
