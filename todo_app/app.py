@@ -7,6 +7,7 @@ import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required
 from urllib.parse import urlencode
+import flask
 
 def create_app():
     app = Flask(__name__)
