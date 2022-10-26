@@ -12,25 +12,14 @@ import flask
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
-    
+
     login_manager = LoginManager()
 
     @login_manager.unauthorized_handler
     def unauthenticated():
-            CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
-            CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
-            REDIRECT_URI = os.getenv("REDIRECT_URI")
-            
-            params = {
-                "client_id": CLIENT_ID,
-                "redirect_uri": REDIRECT_URI,
-                "scope": "user"
-            }
-            
-            endpoint = "GET https://github.com/login/oauth/authorize"
-            endpoint = endpoint + urlencode(params)
-            return flask.redirect('endpoint')
-            
+        redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_CLIENT_ID')}"
+        return redirect(redirect_url)
+
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -51,7 +40,23 @@ def create_app():
         item_view_model = ViewModel(items)
 
         return render_template('index.html', view_model=item_view_model)
+    
+    @app.route('/callback')
+    def callback():
+        authorisation_code = request.args['code']
+        access_token_url = f"https://github.com/login/oauth/access_token"
+        query_params = {
+            "client_id": os.getenv('GITHUB_CLIENT_ID'),
+            "client_secret": os.getenv('GITHUB_CLIENT_SECRET'),
+            "code": authorisation_code
+        }
         
+        headers = {
+            "Accept": "application/json"
+        }
+
+    response = request.post(access_token_url, params = query_params, headers = headers)
+
     @app.route('/create-todo', methods=['Post'])
     @login_required
     def create_new_todo():
