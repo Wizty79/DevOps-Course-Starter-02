@@ -9,10 +9,14 @@ from flask_login import LoginManager, login_required, UserMixin, login_user
 import flask
 
 app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #ask about position
+# note to self - This compares it to the string "True" so that a value of `'False'` will correctly get converted to the boolean `False`.
 
 class User(UserMixin):
         def __init__(self, id):
             self.id = id
+
+
+
 
 def create_app():
     app = Flask(__name__)
