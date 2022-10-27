@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from todo_app.flask_config import Config
-import requests  
+import requests
 import os
 from todo_app.data.item import Item
 import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin
-from urllib.parse import urlencode
 import flask
 
 class User(UserMixin):
