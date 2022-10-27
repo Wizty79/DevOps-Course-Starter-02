@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from todo_app.flask_config import Config
 import requests  
 import os
@@ -22,7 +22,7 @@ def create_app():
     @login_manager.unauthorized_handler
     def unauthenticated():
         redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_CLIENT_ID')}"
-        return redirect(redirect_url) #error redirect is not defined?
+        return redirect(redirect_url)
 
 
     @login_manager.user_loader
