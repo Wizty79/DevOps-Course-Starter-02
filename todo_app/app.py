@@ -8,14 +8,14 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user, current_user
 import flask
 
-app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #ask about position, instructions said to add to app.py but not where?
-# note to self - This compares it to the string "True" so that a value of `'False'` will correctly get converted to the boolean `False`.
+app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #instructions said to add to app.py but not where?
 
 class User(UserMixin):
         def __init__(self, id):
             self.id = id
-        roles = ["read","write"]
+        role = ["read","write"]
         current_user = flask_login.current_user
+        
         #hardcode mapping from user_id to role, but how to determind what user should have what role? 
         # if current_user/user_id = guest 
         #   roles = read
