@@ -8,6 +8,8 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user
 import flask
 
+app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #ask about position
+
 class User(UserMixin):
         def __init__(self, id):
             self.id = id
