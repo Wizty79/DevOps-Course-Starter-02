@@ -27,7 +27,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
-        return user(user_id)
+        return User(user_id)
 
     login_manager.init_app(app)
 
@@ -59,7 +59,7 @@ def create_app():
             "Accept": "application/json"
         }
         
-        access_token_response = request.post(access_token_url, parms = query_params, headers = headers)
+        access_token_response = request.post(access_token_url, params = query_params, headers = headers)
     
         access_token = access_token_response.json()['access_token']
         
@@ -69,7 +69,7 @@ def create_app():
             "Authorization": f"Bearer {access_token}"
         }
     
-        user_info_response = request.get(user_info_url, headares = auth_headers)
+        user_info_response = request.get(user_info_url, headers = auth_headers)
         
         user_id = user_info_response.json()['id']
         
