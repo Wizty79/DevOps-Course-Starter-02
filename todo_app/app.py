@@ -12,10 +12,14 @@ app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #instructio
 
 class User(UserMixin):
         def __init__(self, id):
+            role = ["read","write"]
             self.id = id
-        role = ["read","write"]
-        user_id(role) 
-        current_user = flask_login.current_user
+            if self.id == "Wizty79":
+                self.role = "writer"
+            else:
+                self.role = "reader"
+        #user_id(role) 
+        #current_user = flask_login.current_user
         
 
         
