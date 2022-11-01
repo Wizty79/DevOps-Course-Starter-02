@@ -48,7 +48,6 @@ def create_app():
 
     @app.route('/')
     @login_required
-    @check_user_role
     def index():
         mongo_items = mongo_items_collect.get_mongo_items()
 
@@ -97,6 +96,7 @@ def create_app():
 
     @app.route('/create-todo', methods=['Post'])
     @login_required
+    @check_user_role
     def create_new_todo():
 
         response = mongo_items_collect.create_mongo_todo_item()
@@ -106,6 +106,7 @@ def create_app():
 
     @app.route('/update_status', methods=['POST'])
     @login_required
+    @check_user_role
     def update_status():
         
         response = mongo_items_collect.change_mongo_status()
