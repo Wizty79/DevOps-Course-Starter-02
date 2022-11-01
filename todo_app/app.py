@@ -18,6 +18,11 @@ class User(UserMixin):
                 self.role = "writer"
             else:
                 self.role = "reader"
+                
+@User(self.id, self.role)
+def check_user_role():
+    #if self.role == "writer"
+    pass
 
 def create_app():
     app = Flask(__name__)
