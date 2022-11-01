@@ -106,7 +106,7 @@ def create_app():
 
     @app.route('/update_status', methods=['POST'])
     @login_required
-    @check_user_role
+    #@check_user_role
     def update_status():
         
         response = mongo_items_collect.change_mongo_status()
