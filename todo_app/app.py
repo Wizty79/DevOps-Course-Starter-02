@@ -18,19 +18,6 @@ class User(UserMixin):
                 self.role = "writer"
             else:
                 self.role = "reader"
-        #user_id(role) 
-        #current_user = flask_login.current_user
-        
-
-        
-        #hardcode mapping from user_id to role, but how to determind what user should have what role?
-        #should the hardcoding be under @callback?
-        # if current_user/user_id = guest 
-        #   roles = read
-        # elis 
-        #   roles = write ? 
-        
-
 
 def create_app():
     app = Flask(__name__)
