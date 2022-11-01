@@ -3,6 +3,7 @@ import pymongo
 from bson.objectid import ObjectId
 import requests
 import os
+from todo_app.app import User #possibly needed to check endpoint?
 
 def mongo_connect():
     client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
