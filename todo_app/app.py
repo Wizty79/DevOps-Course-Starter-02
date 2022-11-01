@@ -7,26 +7,30 @@ import todo_app.data.mongo_items_collect as mongo_items_collect
 from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user, current_user
 import flask
-
-app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True' #instructions said to add to app.py but not where?
+from functools import wraps
 
 class User(UserMixin):
         def __init__(self, id):
             role = ["read","write"]
             self.id = id
-            if self.id == "Wizty79":
+            if self.id == "94174586":
                 self.role = "writer"
             else:
                 self.role = "reader"
                 
-@User(self.id, self.role)
-def check_user_role():
-    #if self.role == "writer"
-    pass
+def check_user_role(func):
+    @wraps
+    def inner_check():
+        if current_user.role == "writer":
+            return func()
+        else:
+            return "unauthorized user"
+    return inner_check
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
+    app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
 
     login_manager = LoginManager()
 
@@ -44,6 +48,7 @@ def create_app():
 
     @app.route('/')
     @login_required
+    @check_user_role
     def index():
         mongo_items = mongo_items_collect.get_mongo_items()
 
