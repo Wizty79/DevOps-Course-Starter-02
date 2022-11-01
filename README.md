@@ -177,9 +177,8 @@ To see an example of this specific app hosted on Azure, go to https://chaostodo.
 
 ## Oauth
 
-Githubs Oauth authentication have been added to the application, so you will be prompted to logoin to Github as part of the process to access the app. 
+Githubs Oauth authentication have been added to the application, so you will be prompted to login to Github as part of the process to access the app. 
 
 To understand this further please read Githubs own documentation regarding this subject: https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app
  
 Please note that due to the simplicity of this app, the only user id to have the write role, is set to my own Github user id, to ensure that you are the only user with write privilege, you can alter this bit of the code to your own. One way to do this is in the class User, you can add a print id statement temporarily to see you id, and delete the line once this is seen.
-
