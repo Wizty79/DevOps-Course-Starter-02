@@ -17,9 +17,9 @@ class User(UserMixin):
                 self.role = "writer"
             else:
                 self.role = "reader"
-                
+ 
 def check_user_role(func):
-    @wraps
+    @wraps(func)
     def inner_check():
         if current_user.role == "writer":
             return func()
@@ -106,7 +106,7 @@ def create_app():
 
     @app.route('/update_status', methods=['POST'])
     @login_required
-    #@check_user_role
+    @check_user_role
     def update_status():
         
         response = mongo_items_collect.change_mongo_status()
