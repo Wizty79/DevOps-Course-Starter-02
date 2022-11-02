@@ -184,4 +184,8 @@ To understand this further please read Githubs own documentation regarding this 
 Please note that due to the simplicity of this app, the only user id to have the write role, is set to my own Github user id, to ensure that you are the only user with write privilege, you can alter this bit of the code to your own. One way to do this is in the class User, you can add a print id statement temporarily to see you id, and delete the line once this is seen.
 
 Gitpod users:
-Please be aware that although it's possible to use Gitpod in this instance, it's not reccomended because Gitpod will change your homepage url from session to session, so you will have to go into your github account settings and update your urls here every time you start a new session for this to work. 
+Please be aware that although it's possible to use Gitpod in this instance, it's not recommended because Gitpod will change your homepage url from session to session, so you will have to go into your github account settings and update your homepage and callback urls here every time you start a new session for this to work. 
+However if you still either want or need to use Gitpod you can run the following command in a Gitbash terminal after you've started your session to see what the current sessions url is:
+gp url 5000
+
+
