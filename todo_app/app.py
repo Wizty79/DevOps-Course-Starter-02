@@ -11,7 +11,7 @@ from functools import wraps
 
 class User(UserMixin):
         def __init__(self, id):
-            role = ["read","write"]
+            role = ["read","write", "AnonymousUserMixin"]
             self.id = id
             if self.id == "94174586":
                 self.role = "write"
@@ -58,7 +58,7 @@ def create_app():
                 items.append(item)
         item_view_model = ViewModel(items)
 
-        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role, MyAnonymousUser=login_manager.anonymous_user)
+        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role)
 
     
     @app.route('/callback')
