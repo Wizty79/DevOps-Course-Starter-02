@@ -58,7 +58,7 @@ def create_app():
                 items.append(item)
         item_view_model = ViewModel(items)
 
-        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role)
+        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role, AnonymousUserMixin = AnonymousUserMixin)
 
     
     @app.route('/callback')
