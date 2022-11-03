@@ -32,9 +32,11 @@
                 <input type="text" name="todo-id" value="{{ item.id }}" required>
               </p>
             </div>
+            {% if chaos_user == "write" %}
             <div class="form-example">
               <input type="submit" class="btn btn-dark" value="Complete">
             </div>
+            {% endif %}
           </form> 
         {% endfor %}
       </ul>
