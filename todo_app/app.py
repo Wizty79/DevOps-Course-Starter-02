@@ -14,14 +14,14 @@ class User(UserMixin):
             role = ["read","write"]
             self.id = id
             if self.id == "94174586":
-                self.role = "writer"
+                self.role = "write"
             else:
-                self.role = "reader"
+                self.role = "read"
  
 def check_user_role(func):
     @wraps(func)
     def inner_check():
-        if current_user.role == "writer":
+        if current_user.role == "write":
             return func()
         else:
             return "unauthorized user"
