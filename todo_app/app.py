@@ -58,7 +58,8 @@ def create_app():
                 items.append(item)
         item_view_model = ViewModel(items)
 
-        return render_template('index.html', view_model=item_view_model, args1 = User("reader"), args2 = User("writer"))
+        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role)
+
     
     @app.route('/callback')
     def callback():

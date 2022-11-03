@@ -8,7 +8,7 @@
   </div>
 
 <form action="/create-todo" method="Post" class="form-example">
-  {% if role == "write" %}
+  {% if chaos_user == "write" %}
   <div class="form-example">
     <lable for="name"> Add New Item: </lable>
     <input type="text" name="todo-name" required>
