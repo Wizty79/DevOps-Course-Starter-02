@@ -8,6 +8,7 @@
   </div>
 
 <form action="/create-todo" method="Post" class="form-example">
+  {% if role == "write" %}
   <div class="form-example">
     <lable for="name"> Add New Item: </lable>
     <input type="text" name="todo-name" required>
@@ -15,6 +16,7 @@
     <div class="form-example">
       <input type="submit" value="submit">
     </div>
+  {% endif %}
   </form> 
 
   <div class="row">
