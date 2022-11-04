@@ -11,7 +11,7 @@ from functools import wraps
 
 class User(UserMixin):
         def __init__(self, id):
-            role = ["read","write", "AnonymousUserMixin"]
+            role = ["read","write"]
             self.id = id
             if self.id == "94174586":
                 self.role = "write"
@@ -21,7 +21,8 @@ class User(UserMixin):
 def check_user_role(func):
     @wraps(func)
     def inner_check():
-        if current_user.role == "write":
+        #if current_user.role == "write":
+        if os.getenv('LOGIN_DISABLED') == 'True' or current_user.role == "write":
             return func()
         else:
             return "unauthorized user"
@@ -57,8 +58,9 @@ def create_app():
                 item = Item.from_mongo_item(mongo_item)
                 items.append(item)
         item_view_model = ViewModel(items)
+        user_role = "write" if os.getenv('LOGIN_DISABLED') == 'True' else current_user.role
 
-        return render_template('index.html', view_model=item_view_model, chaos_user = current_user.role, AnonymousUserMixin = AnonymousUserMixin)
+        return render_template('index.html', view_model=item_view_model, chaos_user = user_role)
 
     
     @app.route('/callback')
