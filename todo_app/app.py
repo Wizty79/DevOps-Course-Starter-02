@@ -21,7 +21,6 @@ class User(UserMixin):
 def check_user_role(func):
     @wraps(func)
     def inner_check():
-        #if current_user.role == "write":
         if os.getenv('LOGIN_DISABLED') == 'True' or current_user.role == "write":
             return func()
         else:
