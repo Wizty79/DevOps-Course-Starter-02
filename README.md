@@ -189,4 +189,24 @@ Please be aware that although it's possible to use Gitpod in this instance, it's
 However if you still either want or need to use Gitpod while developing, you can run the following command in a Gitbash terminal after you've started your Gitpod session, to see what the current sessions url is:
 gp url 5000
 
+If you should what to understand the code implementation better, please see the reading material below:
 
+https://docs.github.com/en/rest/users
+
+https://flask-login.readthedocs.io/en/latest/#flask_login.UserMixin
+
+https://flask.palletsprojects.com/en/2.0.x/config/#SECRET_KEY
+
+https://flask-login.readthedocs.io/en/latest/#anonymous-users
+
+https://flask-login.readthedocs.io/en/stable/#flask_login.current_user
+
+https://flask.palletsprojects.com/en/2.2.x/api/#flask.render_template
+
+https://docs.python.org/3/library/functools.html#functools.wraps
+
+https://jinja.palletsprojects.com/en/3.0.x/templates/#if
+
+https://pythonbasics.org/flask-login/
+
+https://www.rfc-editor.org/rfc/rfc6749#section-4.1
