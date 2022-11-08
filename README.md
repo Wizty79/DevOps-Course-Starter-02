@@ -211,5 +211,21 @@ https://pythonbasics.org/flask-login/
 
 https://www.rfc-editor.org/rfc/rfc6749#section-4.1
 
-## module 12 test
+## module 12 
+
+in relation to using gitpod, Terraform and Git LFS, add explanation when whole solution is found. 
+
+https://git-lfs.github.com/
+
+Set up Git LFS for your user account by running:
+
+git lfs install
+
+In each Git repository where you want to use Git LFS, select the file types you'd like Git LFS to manage (or directly edit your .gitattributes). You can configure additional file extensions at anytime:
+
+git lfs track "*.psd"
+
+Now make sure .gitattributes is tracked:
+
+git add .gitattributes
 
