@@ -3,10 +3,11 @@
 
 {% block content %}
   <div class="jumbotron bg-dark text-white">
-    <h1 class="display-4">The To-Do App</h1>
-    <p class="lead"> Chaos To-Do</p>
+    <h1 class="display-4">To-Do App</h1>
+    <p class="lead"> Chaos ToDo.</p>
   </div>
 
+  {% if chaos_user == "write" %}
 <form action="/create-todo" method="Post" class="form-example">
   <div class="form-example">
     <lable for="name"> Add New Item: </lable>
@@ -16,6 +17,7 @@
       <input type="submit" value="submit">
     </div>
   </form> 
+  {% endif %}
 
   <div class="row">
     <div class="col-md-12">
@@ -30,9 +32,11 @@
                 <input type="text" name="todo-id" value="{{ item.id }}" required>
               </p>
             </div>
+            {% if chaos_user == "write" %}
             <div class="form-example">
               <input type="submit" class="btn btn-dark" value="Complete">
             </div>
+            {% endif %}
           </form> 
         {% endfor %}
       </ul>
@@ -47,9 +51,11 @@
                 <input type="text" name="todo-id" value="{{ item.id }}" required>
               </p>
             </div>
+            {% if chaos_user == "write" %}
             <div class="form-example">
               <input type="submit" class="btn btn-dark" value="Complete">
             </div>
+            {% endif %}
           </form> 
         {% endfor %}
       </ul>
