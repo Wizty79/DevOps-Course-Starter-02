@@ -27,9 +27,6 @@ def change_mongo_status():
     mongo_id = request.form['todo-id']
     
     change_status = todos.update_one({"_id": mongo_id}, {"$set":{"status": "Done"}}) 
-    
-    
-    
-    
-    
+       
+
     

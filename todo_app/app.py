@@ -100,7 +100,7 @@ def create_app():
     @login_required
     @check_user_role
     def create_new_todo():
-
+    
         response = mongo_items_collect.create_mongo_todo_item()
         
         return index()
