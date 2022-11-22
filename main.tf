@@ -29,12 +29,12 @@ resource "azurerm_linux_web_app" "main" {
  service_plan_id = azurerm_service_plan.main.id 
  site_config { 
  application_stack { 
- docker_image = "appsvcsample/python-helloworld" 
+ docker_image = "appsvcsample/python-helloworld" #insert my own I assume? somehow? 
  docker_image_tag = "latest" 
  } 
  } 
  app_settings = { 
- "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" 
+ "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with what?> 
  }
 }
 
@@ -115,4 +115,8 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   #account_name        = data.azurerm_cosmosdb_account.example.name
   account_name        = data.azurerm_cosmosdb_account.main.name
   throughput          = 400
+
+  app_settings = {
+    "SOME_KEY" = "some-value" #set connection string under Github secrets?  
+  }
 }
