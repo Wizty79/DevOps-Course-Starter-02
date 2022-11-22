@@ -23,18 +23,19 @@ resource "azurerm_service_plan" "main" {
  sku_name = "B1"
 }
 resource "azurerm_linux_web_app" "main" {
- name = "Terra-Chaos-Todo" 
+ name = "Terra-Chaos-Todo" #change to AZ app name??
  location = data.azurerm_resource_group.main.location 
  resource_group_name = data.azurerm_resource_group.main.name 
  service_plan_id = azurerm_service_plan.main.id 
  site_config { 
  application_stack { 
- docker_image = "appsvcsample/python-helloworld" #insert my own I assume? somehow? 
+ #docker_image = "appsvcsample/python-helloworld"
+ docker_image = "wizty79/wi79_images"
  docker_image_tag = "latest" 
  } 
  } 
  app_settings = { 
- "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with what?> 
+ "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with what? or leave as is? 
  }
 }
 
@@ -109,7 +110,8 @@ data "azurerm_cosmosdb_account" "main" {
 }
 
 resource "azurerm_cosmosdb_mongo_database" "main" {
-  name                = "tfex-cosmos-mongo-db"
+  #name                = "tfex-cosmos-mongo-db"
+  name                = data.azurerm_cosmosdb_account.main.name
   #resource_group_name = data.azurerm_cosmosdb_account.example.resource_group_name
   resource_group_name = data.azurerm_resource_group.main.name
   #account_name        = data.azurerm_cosmosdb_account.example.name
