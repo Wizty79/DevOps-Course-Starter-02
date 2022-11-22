@@ -53,8 +53,10 @@ resource "random_integer" "ri" {
 
 resource "azurerm_cosmosdb_account" "db" {
   name                = "tfex-cosmos-db-${random_integer.ri.result}"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  #location            = azurerm_resource_group.example.location
+  location            = "UK South"
+  #resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = data.azurerm_resource_group.main.name
   offer_type          = "Standard"
   kind                = "MongoDB"
 
@@ -95,4 +97,22 @@ resource "azurerm_cosmosdb_account" "db" {
     location          = "westus"
     failover_priority = 0
   }
+}
+
+##https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_mongo_database
+
+data "azurerm_cosmosdb_account" "main" {
+  #name                = "tfex-cosmosdb-account"
+  name                = "chaostododb"
+  #resource_group_name = "tfex-cosmosdb-account-rg"
+  resource_group_name = data.azurerm_resource_group.main.name
+}
+
+resource "azurerm_cosmosdb_mongo_database" "main" {
+  name                = "tfex-cosmos-mongo-db"
+  #resource_group_name = data.azurerm_cosmosdb_account.example.resource_group_name
+  resource_group_name = data.azurerm_resource_group.main.name
+  #account_name        = data.azurerm_cosmosdb_account.example.name
+  account_name        = data.azurerm_cosmosdb_account.main.name
+  throughput          = 400
 }
