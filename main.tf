@@ -35,7 +35,8 @@ resource "azurerm_linux_web_app" "main" { #to be replaced with azurerm_app_servi
  } 
  } 
  app_settings = { 
- "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with what? or leave as is? 
+ "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with the below? 
+ "MONGODB_CONNECTION_STRING" = azurerm_cosmosdb_account.main.connection_strings[0] #set connection_strings under azurerm_cosmosdb_account? 
  }
 }
 
