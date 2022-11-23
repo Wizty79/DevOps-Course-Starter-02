@@ -41,7 +41,6 @@ resource "azurerm_linux_web_app" "main" { #to be replaced with azurerm_app_servi
 }
 
 ##https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account
-##to be adapted
 
 resource "azurerm_resource_group" "main" {
   name     = data.azurerm_resource_group.main.name
@@ -120,6 +119,6 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   throughput          = 400
 
   app_settings = {
-    "SOME_KEY" = "some-value" #set connection string under Github secrets? or do this go under line 25-40 ? 
+    "SOME_KEY" = "some-value" #set connection string under Github secrets and link to here? or do this go under line 25-40 ? 
   }
 }
