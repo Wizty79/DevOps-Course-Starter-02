@@ -22,7 +22,7 @@ resource "azurerm_service_plan" "main" {
  os_type = "Linux"
  sku_name = "B1"
 }
-resource "azurerm_linux_web_app" "main" {
+resource "azurerm_linux_web_app" "main" { #to be replaced with azurerm_app_service / app_settings ? see step 4 part 3. 
  name = "Terra-Chaos-Todo" #change to AZ app name??
  location = data.azurerm_resource_group.main.location 
  resource_group_name = data.azurerm_resource_group.main.name 
@@ -119,6 +119,6 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   throughput          = 400
 
   app_settings = {
-    "SOME_KEY" = "some-value" #set connection string under Github secrets?  
+    "SOME_KEY" = "some-value" #set connection string under Github secrets? or do this go under line 25-40 ? 
   }
 }
