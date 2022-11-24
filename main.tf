@@ -16,55 +16,43 @@ data "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_service_plan" "main" {
- name = "terraformed-asp" 
- location = data.azurerm_resource_group.main.location 
- resource_group_name = data.azurerm_resource_group.main.name 
- os_type = "Linux"
- sku_name = "B1"
+  name                = "terraformed-asp"
+  location            = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
+  os_type             = "Linux"
+  sku_name            = "B1"
 }
-resource "azurerm_linux_web_app" "main" { #to be replaced with azurerm_app_service / app_settings ? see step 4 part 3. 
- name = "Terra-Chaos-Todo" #change to AZ app name??
- location = data.azurerm_resource_group.main.location 
- resource_group_name = data.azurerm_resource_group.main.name 
- service_plan_id = azurerm_service_plan.main.id 
- site_config { 
- application_stack { 
- #docker_image = "appsvcsample/python-helloworld"
- docker_image = "wizty79/wi79_images"
- docker_image_tag = "latest" 
- } 
- } 
- app_settings = { 
- "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with the below? 
- "MONGODB_CONNECTION_STRING" = azurerm_cosmosdb_account.main.connection_strings[0] #set connection_strings under azurerm_cosmosdb_account? 
- }
-}
-
-##https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account
-
-resource "azurerm_resource_group" "main" {
-  name     = data.azurerm_resource_group.main.name
-  location = "UK South" 
-}
-
-resource "random_integer" "ri" {
-  min = 10000
-  max = 99999
+resource "azurerm_linux_web_app" "main" {  #to be replaced with azurerm_app_service ?
+  name                = "Terra-Chaos-Todo" #change to AZ app name "chaostododb"? already used under "azurerm_cosmosdb_account" ?
+  location            = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
+  service_plan_id     = azurerm_service_plan.main.id
+  site_config {
+    application_stack {
+      #docker_image = "appsvcsample/python-helloworld"
+      docker_image     = "wizty79/wi79_images"
+      docker_image_tag = "latest"
+    }
+  }
+  app_settings = {
+    "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io" #replace with the below? 
+    "MONGODB_CONNECTION_STRING"  = azurerm_cosmosdb_account.db.connection_strings[0]
+  }
 }
 
 resource "azurerm_cosmosdb_account" "db" {
-  name                = "tfex-cosmos-db-${random_integer.ri.result}"
+  name = "chaos-cosmos-db"
   #location            = azurerm_resource_group.example.location
-  location            = "UK South"
+  location = "UK South"
   #resource_group_name = azurerm_resource_group.example.name
   resource_group_name = data.azurerm_resource_group.main.name
   offer_type          = "Standard"
   kind                = "MongoDB"
 
   enable_automatic_failover = true
-  
-  capabilities { 
-	name = "EnableServerless" 
+
+  capabilities {
+    name = "EnableServerless"
   }
 
   capabilities {
@@ -90,35 +78,18 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 
   geo_location {
-    location          = "eastus"
-    failover_priority = 1
-  }
-
-  geo_location {
     location          = "westus"
     failover_priority = 0
   }
 }
 
-##https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_mongo_database
-
-data "azurerm_cosmosdb_account" "main" {
-  #name                = "tfex-cosmosdb-account"
-  name                = "chaostododb"
-  #resource_group_name = "tfex-cosmosdb-account-rg"
-  resource_group_name = data.azurerm_resource_group.main.name
-}
-
 resource "azurerm_cosmosdb_mongo_database" "main" {
   #name                = "tfex-cosmos-mongo-db"
-  name                = data.azurerm_cosmosdb_account.main.name
+  name = azurerm_cosmosdb_account.db.name
   #resource_group_name = data.azurerm_cosmosdb_account.example.resource_group_name
   resource_group_name = data.azurerm_resource_group.main.name
   #account_name        = data.azurerm_cosmosdb_account.example.name
-  account_name        = data.azurerm_cosmosdb_account.main.name
-  throughput          = 400
+  account_name = azurerm_cosmosdb_account.db.name
+  throughput   = 400
 
-  app_settings = {
-    "SOME_KEY" = "some-value" #call on connection here or under "azurerm_linux_web_app"?
-  }
 }
