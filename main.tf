@@ -119,6 +119,6 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   throughput          = 400
 
   app_settings = {
-    "SOME_KEY" = "some-value" #set connection string under Github secrets and link to here? or do this go under line 25-40 ? 
+    "SOME_KEY" = "some-value" #call on connection here or under "azurerm_linux_web_app"?
   }
 }
