@@ -16,14 +16,14 @@ data "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_service_plan" "main" {
-  name                = "terraformed-asp"
+  name                = "terraformed-chaos"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   os_type             = "Linux"
   sku_name            = "B1"
 }
 resource "azurerm_linux_web_app" "main" {  #to be replaced with azurerm_app_service ?
-  name                = "Terra-Chaos-Todo" #change to AZ app name "chaostododb"? already used under "azurerm_cosmosdb_account" ?
+  name                = "TerraBerra-Chaos-Todo" #change to AZ app name "chaostododb"? already used under "azurerm_cosmosdb_account" ?
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   service_plan_id     = azurerm_service_plan.main.id
@@ -52,7 +52,7 @@ resource "azurerm_cosmosdb_account" "db" {
   enable_automatic_failover = true
 
   capabilities {
-    name = "EnableServerless"
+   name = "EnableServerless"
   }
 
   capabilities {
