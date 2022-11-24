@@ -189,7 +189,7 @@ Please be aware that although it's possible to use Gitpod in this instance, it's
 However if you still either want or need to use Gitpod while developing, you can run the following command in a Gitbash terminal after you've started your Gitpod session, to see what the current sessions url is:
 gp url 5000
 
-If you should what to understand the code implementation better, please see the reading material below:
+If you should want to understand the code implementation better, please see the reading material below:
 
 https://docs.github.com/en/rest/users
 
