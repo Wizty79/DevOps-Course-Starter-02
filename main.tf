@@ -93,6 +93,6 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   resource_group_name = data.azurerm_resource_group.main.name
   #account_name        = data.azurerm_cosmosdb_account.example.name
   account_name = azurerm_cosmosdb_account.db.name
-  throughput   = 400
+  #throughput   = 400
 
 }
