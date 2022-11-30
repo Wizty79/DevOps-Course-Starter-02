@@ -19,7 +19,7 @@ resource "random_string" "resource_code" {
 
 resource "azurerm_resource_group" "tfstate" {
   name     = "tfstate"
-  location = "East US"  #change?
+  location = "UK South"  #changed from US 
 }
 
 resource "azurerm_storage_account" "tfstate" {
