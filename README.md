@@ -231,10 +231,14 @@ https://developer.hashicorp.com/terraform/language/values/variables
 
 syntax & indentation tips:
 
-make use of the followeing command:
+To make use of the followeing command:
 
 terraform fmt 
 
 This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability. As a best practice, terraform fmt should always be run on your configuration files, so formatting standards and language style conventions are applied across your configuration in a uniform manner. This helps code readability and ensures all configuration files are formatted the same, no matter which team member is writing the file.
 
+
+terraform -help
+
+terraform -help plan 
 
