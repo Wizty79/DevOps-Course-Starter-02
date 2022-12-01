@@ -222,9 +222,11 @@ https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cl
 
 Terraform Variables
 
-To pass in variables on the command line, use the -var flag: 
+For keeping your secrets there are more then one way of doing this, here I've setup a file called variables.tf , however as this is a sensitive file it's been added to .gitignore and as such will not be committed and when using gitpod you'll have to re-create the file everything you start a new session, so for convenience while developing, you can keep the file in something like notepad++ on your local so you can easily copy past it in when you start a new session. 
 
-terraform apply -var 'prefix=test' -var 'oauth_client_id='xxxxxx'
+For more information on how to declare the variables please see the followeing page:
+
+https://developer.hashicorp.com/terraform/language/values/variables
 
 
 syntax & indentation tips:
