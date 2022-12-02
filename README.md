@@ -229,9 +229,12 @@ For more information on how to declare the variables please see the followeing p
 https://developer.hashicorp.com/terraform/language/values/variables
 
 
-syntax & indentation tips:
+Create a Service Principal:
 
-To make use of the followeing command:
+https://learn.microsoft.com/en-gb/cli/azure/create-an-azure-service-principal-azure-cli
+
+
+Helpful Commands:
 
 terraform fmt 
 
@@ -241,4 +244,6 @@ This command applies a subset of the Terraform language style conventions, along
 terraform -help
 
 terraform -help plan 
+
+
 
