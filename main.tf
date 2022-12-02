@@ -5,6 +5,13 @@ terraform {
       version = ">= 2.92"
     }
   }
+    backend "azurerm" {
+    resource_group_name  = "LV21_WIstiWIstisen_ProjectExercise"
+    storage_account_name = "chaoskept14588"
+    container_name       = "chaoscontained"
+    key                  = "prod.terraform.tfstate"
+  }
+
 }
 
 provider "azurerm" {
