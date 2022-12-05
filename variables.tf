@@ -14,7 +14,7 @@ variable "API_TOKEN" {
 
 variable "REDIRECT_URI" {
 	type = string
-	default = "https://localhost:5000/callback"
+	default = "https://terraberra-chaos-todo.azurewebsites.net/callback"
 }
 
 variable "USERNAME" {
