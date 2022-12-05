@@ -1,7 +1,6 @@
-variable "prefix" {
- description = "The prefix used for all resources in this environment"
- default = TF_
-}
+#variable "prefix" {
+#description = "The prefix used for all resources in this environment"
+#}
 
 variable "API_KEY" {
 	type = string
