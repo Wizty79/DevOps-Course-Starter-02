@@ -66,7 +66,7 @@ jobs:
         TF_VAR_DOCKER_TOKEN: '${{ secrets.DOCKER_TOKEN }}'
         TF_VAR_DOCKER_USERNAME: '${{ secrets.DOCKER_USERNAME }}'
         TF_VAR_GITHUB_CLIENT_ID: '${{ secrets.GITHUB_CLIENT_ID }}'
-        T_VAR_GITHUB_CLIENT_SECRET: '${{ secrets.GITHUB_CLIENT_SECRET }}'
+        TF_VAR_GITHUB_CLIENT_SECRET: '${{ secrets.GITHUB_CLIENT_SECRET }}'
     steps:
     - 
       name: Checkout
