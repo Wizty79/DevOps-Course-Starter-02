@@ -1,6 +1,6 @@
-#variable "prefix" {
-#description = "The prefix used for all resources in this environment"
-#}
+variable "prefix" {
+description = "The prefix used for all resources in this environment"
+}
 
 variable "API_KEY" {
 	type = string
@@ -14,7 +14,7 @@ variable "API_TOKEN" {
 
 variable "REDIRECT_URI" {
 	type = string
-	default = "https://terraberra-chaos-todo.azurewebsites.net/callback"
+	default = "https://localhost:5000/callback"
 }
 
 variable "USERNAME" {
