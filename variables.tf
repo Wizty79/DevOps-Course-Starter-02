@@ -1,6 +1,6 @@
 variable "prefix" {
  description = "The prefix used for all resources in this environment"
-}
+
 
 variable "API_KEY" {
 	type = string
@@ -42,4 +42,5 @@ variable "GITHUB_CLIENT_ID" {
 variable "GITHUB_CLIENT_SECRET" {
 	type = string
 	sensitive = true
+}
 }
