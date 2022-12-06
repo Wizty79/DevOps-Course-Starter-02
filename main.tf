@@ -37,7 +37,9 @@ resource "azurerm_linux_web_app" "main" {  #to be replaced with azurerm_app_serv
   site_config {
     application_stack {
       #docker_image = "appsvcsample/python-helloworld"
-      docker_image     = "wizty79/wi79_images"
+      #docker_image     = "wizty79/wi79_images"
+      docker_image     = "${var.prefix}-wizty79/wi79_images"
+
       docker_image_tag = "latest"
     }
   }
