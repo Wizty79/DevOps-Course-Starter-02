@@ -6,7 +6,7 @@ terraform {
     }
   }
     backend "azurerm" {
-    resource_group_name  = "LV21_WistiWIstisen_ProjectExercise"
+    resource_group_name  = "LV21_WistiWistisen_ProjectExercise"
     storage_account_name = "chaoskept14588"
     container_name       = "chaoscontained"
     key                  = "prod.terraform.tfstate"
@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 data "azurerm_resource_group" "main" {
-  name = "lv21_wistiwistisen_projectexercise"
+  name = "LV21_WistiWistisen_ProjectExercise"
 }
 
 resource "azurerm_service_plan" "main" {
