@@ -105,3 +105,5 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   #throughput   = 400
 
 }
+
+
