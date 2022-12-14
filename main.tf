@@ -44,6 +44,8 @@ resource "azurerm_linux_web_app" "main" {
     "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"  
     "MONGODB_CONNECTION_STRING"  = azurerm_cosmosdb_account.db.connection_strings[0]
     "REDIRECT_URI" = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
+    "DOCKER_TOKEN" = var.DOCKER_TOKEN
+    "DOCKER_USERNAME" = "wizty79"
     "GITHUB_CLIENT_ID" = var.GITHUB_CLIENT_ID
     "GITHUB_CLIENT_SECRET" = var.GITHUB_CLIENT_SECRET
     "SECRET_KEY" = var.SECRET_KEY
