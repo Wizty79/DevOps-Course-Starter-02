@@ -76,5 +76,4 @@ jobs:
     - name: 'Terraform Apply'
       run: terraform apply -auto-approve
     - name: 'Run Azure CLI commands'
-      run: curl -dH -X POST --fail ${{ secrets.WEBHOOK_AZ }}
-
+      run: curl -dH -X POST --fail "$(terraform output -raw webhook)"
