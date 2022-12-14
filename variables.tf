@@ -39,3 +39,8 @@ variable "GITHUB_CLIENT_SECRET" {
 	type = string
 	sensitive = true
 }
+
+variable "SECRET_KEY" {
+	type = string
+	sensitive = true
+}
