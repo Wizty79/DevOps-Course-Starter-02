@@ -36,7 +36,7 @@ def create_app():
 
     @login_manager.unauthorized_handler
     def unauthenticated():
-        redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_AZ_CLIENT_ID')}"
+        redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_CLIENT_ID')}" #renamed for the terraform app maybe?
         return redirect(redirect_url)
 
 

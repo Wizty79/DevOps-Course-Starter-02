@@ -8,7 +8,7 @@ variable "API_TOKEN" {
 	sensitive = true
 }
 
-variable "REDIRECT_URI" {
+variable "REDIRECT_URL" {
 	type = string
 	default = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
 }
