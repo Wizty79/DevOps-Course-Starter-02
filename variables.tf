@@ -16,7 +16,7 @@ variable "REDIRECT_URI" {
 variable "USERNAME" {
 	type = string
 	sensitive = true
-	default = "chaostododb" # should this be chaos-cosmos-db?
+	default = "chaos-cosmos-db" # database name? 
 }
 
 variable "DOCKER_TOKEN" {
