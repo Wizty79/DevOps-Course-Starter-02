@@ -222,7 +222,7 @@ https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cl
 
 Terraform Variables
 
-For keeping your secrets there are more then one way of doing this, here I've setup a file called variables.tf , however as this is a sensitive file it's been added to .gitignore and as such will not be committed and when using gitpod you'll have to re-create the file everything you start a new session, so for convenience while developing, you can keep the file in something like notepad++ on your local so you can easily copy past it in when you start a new session. 
+For keeping your secrets there are more then one way of doing this, here I've setup a file called terraform.tfvars, however as this is a sensitive file it's been added to .gitignore and as such will not be committed, so when using gitpod you'll have to re-create the file everything you start a new session, so for convenience while developing, you can keep the file in something like notepad++ on your local, so you can easily copy and past it in when you start a new session. 
 
 For more information on how to declare the variables please see the followeing page:
 
@@ -245,8 +245,9 @@ terraform -help
 
 terraform -help plan 
 
+Also if using Gitpod you'll need to login to AZ firtst, please see the "Hosting the app on Azure" sectio for notes on the relevant commends to use. 
 
+As mentioned in the linked guide you can run terraform init Initialize the project, and then terraform apply
 
-adding a test
-
+However before running the apply command you can also run terraform plan to verify that the installation. 
 
