@@ -44,3 +44,4 @@ variable "SECRET_KEY" {
 	type = string
 	sensitive = true
 }
+
