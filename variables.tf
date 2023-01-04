@@ -10,13 +10,13 @@ variable "API_TOKEN" {
 
 variable "REDIRECT_URI" {
 	type = string
-	default = "https://localhost:5000/callback"
+	default = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
 }
 
 variable "USERNAME" {
 	type = string
 	sensitive = true
-	default = "chaostododb"
+	default = "chaostododb" # should this be chaos-cosmos-db?
 }
 
 variable "DOCKER_TOKEN" {
