@@ -36,7 +36,7 @@ def create_app():
 
     @login_manager.unauthorized_handler
     def unauthenticated():
-        redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_CLIENT_ID')}" #renamed for the terraform app maybe?
+        redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_TERRA_CLIENT_ID')}" #renamed for the terraform app maybe?
         return redirect(redirect_url)
 
 
@@ -67,8 +67,8 @@ def create_app():
         authorisation_code = request.args['code']
         access_token_url = f"https://github.com/login/oauth/access_token"
         query_params = {
-            "client_id": os.getenv('GITHUB_AZ_CLIENT_ID'),
-            "client_secret": os.getenv('GITHUB_AZ_CLIENT_SECRET'),
+            "client_id": os.getenv('GITHUB_TERRA_CLIENT_ID'),
+            "client_secret": os.getenv('GITHUB_TERRA_CLIENT_SECRET'),
             "code": authorisation_code
         }
         
