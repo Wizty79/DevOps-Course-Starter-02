@@ -103,3 +103,6 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   account_name = azurerm_cosmosdb_account.db.name
 
 }
+
+
+##test
