@@ -66,7 +66,7 @@ jobs:
         TF_VAR_DOCKER_TOKEN: '${{ secrets.DOCKER_TOKEN }}'
         TF_VAR_DOCKER_USERNAME: '${{ secrets.DOCKER_USERNAME }}'
         TF_VAR_GITHUB_TERRA_CLIENT_ID: '${{ secrets.GITHUB_TERRA_CLIENT_ID }}'
-        TF_VAR_GITHUB__TERRA_CLIENT_SECRET: '${{ secrets.GITHUB_TERRA_CLIENT_SECRET }}'
+        TF_VAR_GITHUB_TERRA_CLIENT_SECRET: '${{ secrets.GITHUB_TERRA_CLIENT_SECRET }}'
         TF_VAR_SECRET_KEY: '${{ secrets.SECRET_KEY_X }}'
     steps:
     - 
