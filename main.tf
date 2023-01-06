@@ -42,7 +42,7 @@ resource "azurerm_linux_web_app" "main" {
   }
   app_settings = {
     "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"  
-    "MONGODB_CONNECTION_STRING"  = azurerm_cosmosdb_account.db.connection_strings[0]
+    "PRIMARY_CONNECTION_STRING_DB"  = azurerm_cosmosdb_account.db.connection_strings[0]
     "REDIRECT_URL" = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
     "DOCKER_TOKEN" = var.DOCKER_TOKEN
     "DOCKER_USERNAME" = "wizty79"
