@@ -44,6 +44,7 @@ resource "azurerm_linux_web_app" "main" {
     "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"  
     "PRIMARY_CONNECTION_STRING_DB"  = azurerm_cosmosdb_account.db.connection_strings[0]
     "REDIRECT_URL" = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
+    #"REDIRECT_URL=https://localhost:5000/callback"
     "DOCKER_TOKEN" = var.DOCKER_TOKEN
     "DOCKER_USERNAME" = "wizty79"
     "GITHUB_TERRA_CLIENT_ID" = var.GITHUB_TERRA_CLIENT_ID
