@@ -11,7 +11,6 @@ variable "API_TOKEN" {
 variable "REDIRECT_URL" {
 	type = string
 	default = "https://TerraBerra-Chaos-Todo.azurewebsites.net/callback"
-	#default = https://localhost:5000/callback
 }
 
 variable "USERNAME" {
