@@ -251,3 +251,7 @@ As mentioned in the linked guide you can run terraform init Initialize the proje
 
 However before running the apply command you can also run terraform plan to verify that the installation. 
 
+## Setup for Module 13 ~ more to come
+
+
+
