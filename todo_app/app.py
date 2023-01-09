@@ -8,6 +8,9 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user, current_user
 import flask
 from functools import wraps
+import logger
+
+
 
 class User(UserMixin):
         def __init__(self, id):
@@ -116,10 +119,6 @@ def create_app():
         return index()
     return app
 
-
-
-
-
-
+app.logger.setLevel(app.config['LOG_LEVEL'])
 
 
