@@ -34,6 +34,15 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
+    
+    logging.basicConfig(filename='myapp.log') #from https://docs.python.org/dev/howto/logging.html
+    app.logger.setLevel(app.config['LOG_LEVEL'])
+    logging.info('Started')
+    mylib.do_something()
+    logging.info('Finished')
+
+if __name__ == '__main__':
+    main()
 
     login_manager = LoginManager()
 
@@ -119,6 +128,5 @@ def create_app():
         return index()
     return app
 
-app.logger.setLevel(app.config['LOG_LEVEL'])
 
 
