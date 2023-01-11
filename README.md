@@ -189,7 +189,7 @@ Please be aware that although it's possible to use Gitpod in this instance, it's
 However if you still either want or need to use Gitpod while developing, you can run the following command in a Gitbash terminal after you've started your Gitpod session, to see what the current sessions url is:
 gp url 5000
 
-If you should what to understand the code implementation better, please see the reading material below:
+If you should want to understand the code implementation better, please see the reading material below:
 
 https://docs.github.com/en/rest/users
 
@@ -210,3 +210,44 @@ https://jinja.palletsprojects.com/en/3.0.x/templates/#if
 https://pythonbasics.org/flask-login/
 
 https://www.rfc-editor.org/rfc/rfc6749#section-4.1
+
+## module 12 
+
+Installing Terraform 
+
+For step by step instructions to install Terraform, please see the link below:
+
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cli?in=terraform%2Fazure-get-started
+
+
+Terraform Variables
+
+For keeping your secrets there are more then one way of doing this, here I've setup a file called terraform.tfvars, however as this is a sensitive file it's been added to .gitignore and as such will not be committed, so when using gitpod you'll have to re-create the file everything you start a new session, so for convenience while developing, you can keep the file in something like notepad++ on your local, so you can easily copy and past it in when you start a new session. 
+
+For more information on how to declare the variables please see the followeing page:
+
+https://developer.hashicorp.com/terraform/language/values/variables
+
+
+Create a Service Principal:
+
+https://learn.microsoft.com/en-gb/cli/azure/create-an-azure-service-principal-azure-cli
+
+
+Helpful Commands:
+
+terraform fmt 
+
+This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability. As a best practice, terraform fmt should always be run on your configuration files, so formatting standards and language style conventions are applied across your configuration in a uniform manner. This helps code readability and ensures all configuration files are formatted the same, no matter which team member is writing the file.
+
+
+terraform -help
+
+terraform -help plan 
+
+Also if using Gitpod you'll need to login to AZ firtst, please see the "Hosting the app on Azure" sectio for notes on the relevant commends to use. 
+
+As mentioned in the linked guide you can run terraform init Initialize the project, and then terraform apply
+
+However before running the apply command you can also run terraform plan to verify that the installation. 
+
