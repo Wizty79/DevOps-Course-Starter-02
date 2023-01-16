@@ -35,13 +35,9 @@ def create_app():
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
     
-    login_manager = LoginManager()
+    LOGGLY_TOKEN = os.getenv('LOGGLY_TOKEN') #Not needed? Don't help anyways 
     
-    app.logger.info("Value of role is %s", role)
-    app.logger.info("Value of login_manager is %s", login_manager)
-    app.logger.info("Value of unauthenticated is %s", unauthenticated())
-    app.logger.info("Value of items is %s", items)
-    app.logger.info("Value of user is $s", User(id))
+    login_manager = LoginManager()
     
     if app.config['LOGGLY_TOKEN'] is not None:
         handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo_app')
@@ -49,6 +45,12 @@ def create_app():
             Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
         )
         app.logger.addHandler(handler)
+        
+        #app.logger.info("Value of role is %s", role)
+        #app.logger.info("Value of login_manager is %s", login_manager)
+        #app.logger.info("Value of unauthenticated is %s", unauthenticated())
+        #app.logger.info("Value of items is %s", items)
+        #app.logger.info("Value of user is $s", User(id))
 
     @login_manager.unauthorized_handler
     def unauthenticated():

@@ -146,14 +146,6 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
-name = "logger"
-version = "1.4"
-description = "Python logging helper"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "logging"
 version = "0.4.9.6"
 description = "A logging module for Python"
@@ -390,7 +382,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "c0d04f47512d44860033e90ef87d2f208ceb08fa86cf1c6242b0bac1b129027d"
+content-hash = "3ef1a21934a92a9e530e281915b19e75c6d8c201e11d5e04e9ab488ac0a15482"
 
 [metadata.files]
 atomicwrites = []
@@ -406,7 +398,6 @@ importlib-metadata = []
 iniconfig = []
 itsdangerous = []
 jinja2 = []
-logger = []
 logging = []
 loggly-python-handler = []
 markupsafe = []
