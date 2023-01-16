@@ -35,14 +35,14 @@ def create_app():
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
     
-    logging.basicConfig(filename='myapp.log') #from https://docs.python.org/dev/howto/logging.html
-    app.logger.setLevel(app.config['LOG_LEVEL'])
-    logging.info('Started')
-    mylib.do_something()
-    logging.info('Finished')
+    #logging.basicConfig(filename='app.log') #from https://docs.python.org/dev/howto/logging.html
+    #app.logger.setLevel(app.config['LOG_LEVEL'])
+    #logging.info('Started')
+    #mylib.do_something()
+    #logging.info('Finished')
 
-if __name__ == '__main__':
-    main()
+    #if __name__ == '__main__':
+    #main()
 
     login_manager = LoginManager()
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     @app.route('/')
     @login_required
     def index():
-        mongo_items = mongo_items_collect.get_mongo_items()
+        mongo_items = mongo_items_collect.get_mongo_items() # rename!
 
         items = []
 
@@ -126,7 +126,14 @@ if __name__ == '__main__':
         response = mongo_items_collect.change_mongo_status()
 
         return index()
+
+
+    app.logger.info("Value of role is %s", role)
+    app.logger.info("Value of login_manager is %s", login_manager)
+    app.logger.info("Value of unauthenticated is %s", unauthenticated())
+    app.logger.info("Value of items is %s", items)
+    app.logger.info("Value of user is $s", User(id))
+    
+
+
     return app
-
-
-
