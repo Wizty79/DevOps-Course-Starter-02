@@ -135,5 +135,4 @@ def create_app():
     app.logger.info("Value of user is $s", User(id))
     
 
-
     return app
