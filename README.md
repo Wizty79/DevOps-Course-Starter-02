@@ -254,4 +254,11 @@ However before running the apply command you can also run terraform plan to veri
 ## Setup for Module 13 ~ more to come
 
 
+logging tutorial: https://docs.python.org/3/howto/logging.html
+
+
+If you want to set the logging level from a command-line option such as:
+
+--log=INFO
+
 

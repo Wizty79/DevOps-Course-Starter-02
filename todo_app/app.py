@@ -37,6 +37,12 @@ def create_app():
     
     login_manager = LoginManager()
     
+    app.logger.info("Value of role is %s", role)
+    app.logger.info("Value of login_manager is %s", login_manager)
+    app.logger.info("Value of unauthenticated is %s", unauthenticated())
+    app.logger.info("Value of items is %s", items)
+    app.logger.info("Value of user is $s", User(id))
+    
     if app.config['LOGGLY_TOKEN'] is not None:
         handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo_app')
         handler.setFormatter(
@@ -124,13 +130,5 @@ def create_app():
         response = mongo_items_collect.change_mongo_status()
 
         return index()
-
-
-    app.logger.info("Value of role is %s", role)
-    app.logger.info("Value of login_manager is %s", login_manager)
-    app.logger.info("Value of unauthenticated is %s", unauthenticated())
-    app.logger.info("Value of items is %s", items)
-    app.logger.info("Value of user is $s", User(id))
     
-
     return app
