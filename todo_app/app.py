@@ -8,7 +8,7 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user, current_user
 import flask
 from functools import wraps
-import logger
+import logging
 from loggly.handlers import HTTPSHandler
 from logging import Formatter
 
