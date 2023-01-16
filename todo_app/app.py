@@ -8,7 +8,9 @@ from todo_app.data.view_model import ViewModel
 from flask_login import LoginManager, login_required, UserMixin, login_user, current_user
 import flask
 from functools import wraps
+
 import logging
+import loggly
 from loggly.handlers import HTTPSHandler
 from logging import Formatter
 
@@ -35,7 +37,7 @@ def create_app():
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
     
-    LOGGLY_TOKEN = os.getenv('LOGGLY_TOKEN') #Not needed? Don't help anyways 
+    #LOGGLY_TOKEN = os.getenv('LOGGLY_TOKEN') #still get KeyError in line 447 : 'LOGGLY_TOKEN'
     
     login_manager = LoginManager()
     

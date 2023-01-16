@@ -146,9 +146,9 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
-name = "logging"
-version = "0.4.9.6"
-description = "A logging module for Python"
+name = "loggly"
+version = "0.1.5"
+description = "Loggly Library"
 category = "main"
 optional = false
 python-versions = "*"
@@ -382,7 +382,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "3ef1a21934a92a9e530e281915b19e75c6d8c201e11d5e04e9ab488ac0a15482"
+content-hash = "e91c23a71f87e98a9397368c0b2b839a491e66782ce5c6f69948f2de72569ae6"
 
 [metadata.files]
 atomicwrites = []
@@ -398,7 +398,7 @@ importlib-metadata = []
 iniconfig = []
 itsdangerous = []
 jinja2 = []
-logging = []
+loggly = []
 loggly-python-handler = []
 markupsafe = []
 mongo = []
