@@ -9,8 +9,8 @@ from flask_login import LoginManager, login_required, UserMixin, login_user, cur
 import flask
 from functools import wraps
 import logger
-
-
+from loggly.handlers import HTTPSHandler
+from logging import Formatter
 
 class User(UserMixin):
         def __init__(self, id):
@@ -35,16 +35,16 @@ def create_app():
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
     
-    #logging.basicConfig(filename='app.log') #from https://docs.python.org/dev/howto/logging.html
-    #app.logger.setLevel(app.config['LOG_LEVEL'])
-    #logging.info('Started')
-    #mylib.do_something()
-    #logging.info('Finished')
-
-    #if __name__ == '__main__':
-    #main()
-
     login_manager = LoginManager()
+    
+    if app.config['LOGGLY_TOKEN'] is not None:
+        handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/
+    {app.config["LOGGLY_TOKEN"]}/tag/todo_app')
+        handler.setFormatter(
+            Formatter("[%(asctime)s] %(levelname)s in %(module)s: %
+    (message)s")
+        )
+        app.logger.addHandler(handler)
 
     @login_manager.unauthorized_handler
     def unauthenticated():

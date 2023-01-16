@@ -154,6 +154,17 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "loggly-python-handler"
+version = "1.0.1"
+description = "Python logging handler that sends messages to Loggly"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests-futures = ">=1.0.0"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -298,6 +309,17 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
+name = "requests-futures"
+version = "1.0.0"
+description = "Asynchronous Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = ">=1.2.0"
+
+[[package]]
 name = "sentinels"
 version = "1.0.0"
 description = "Various objects to denote special meanings in python"
@@ -360,7 +382,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "b45d9d30ea6a34b08b23430789723068bf78c74a39b8ff9d0f5830f4e4cc58d8"
+content-hash = "f165acb730db3ef90aef4b22d2d958c2ed7646fb45a64c891e57d66aad8bb999"
 
 [metadata.files]
 atomicwrites = []
@@ -377,6 +399,7 @@ iniconfig = []
 itsdangerous = []
 jinja2 = []
 logger = []
+loggly-python-handler = []
 markupsafe = []
 mongo = []
 mongomock = []
@@ -388,6 +411,7 @@ pyparsing = []
 pytest = []
 python-dotenv = []
 requests = []
+requests-futures = []
 sentinels = []
 tomli = []
 typing-extensions = []
