@@ -10,7 +10,7 @@ import flask
 from functools import wraps
 
 import logging
-import loggly    #not necessary ? 
+#import loggly    #not necessary ? 
 from loggly.handlers import HTTPSHandler
 from logging import Formatter
 
