@@ -36,8 +36,6 @@ def create_app():
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
     
-    #LOGGLY_TOKEN = os.getenv('LOGGLY_TOKEN') #still get KeyError in line 447 : 'LOGGLY_TOKEN'
-    
     login_manager = LoginManager()
     
     if app.config['LOGGLY_TOKEN'] is not None:
