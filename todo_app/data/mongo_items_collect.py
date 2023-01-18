@@ -4,8 +4,10 @@ from bson.objectid import ObjectId
 import requests
 import os
 import logging
+from todo_app import app
 from loggly.handlers import HTTPSHandler
 from logging import Formatter
+
 
 def mongo_connect():
     client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
@@ -30,5 +32,4 @@ def change_mongo_status():
     mongo_id = request.form['todo-id']
     
     change_status = todos.update_one({"_id": mongo_id}, {"$set":{"status": "Done"}}) 
-    #app.logger.info("Status change to done for todo with id %s", mongo_id) #todo item is moved but app creshes? app not defined? 
-    
+    app.logger.info("Status change to done for todo with id %s", mongo_id)     
