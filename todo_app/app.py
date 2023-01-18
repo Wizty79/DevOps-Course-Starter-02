@@ -46,10 +46,10 @@ def create_app():
         app.logger.addHandler(handler)
         
         #app.logger.info("Value of role is %s", role)
-        #app.logger.info("Value of login_manager is %s", login_manager)
+        app.logger.info("Value of login_manager is %s", login_manager)
         #app.logger.info("Value of unauthenticated is %s", unauthenticated())
         #app.logger.info("Value of items is %s", items)
-        #app.logger.info("Value of user is $s", User(id))
+        app.logger.info("Value of user is $s", User(id))
 
     @login_manager.unauthorized_handler
     def unauthenticated():
