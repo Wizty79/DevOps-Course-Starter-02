@@ -46,12 +46,11 @@ def create_app():
         app.logger.addHandler(handler)
         
         app.logger.info("Value of login_manager is %s", login_manager)
-        app.logger.info("load_user %s", user_id)
-        app.logger.info("Responding to request from %s", current_user.id)
-        app.logger.info("Value of user is $s", user.id)
+        app.logger.info("loading user %s", user_id) #user_id not defined
+        app.logger.info("Responding to request from %s", current_user.id) #Nonetype object has no id
         
-        app.logger.info(" Value of User $s", self.role)
-        app.logger.info("Value of check_user_role $s", check_user_role(func))
+        app.logger.info("Value of User $s", self.role) #name 'self' is not defined
+        app.logger.info("Value of check_user_role $s", check_user_role)
 
     @login_manager.unauthorized_handler
     def unauthenticated():
