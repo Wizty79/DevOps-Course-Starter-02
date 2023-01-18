@@ -29,6 +29,7 @@ def check_user_role(func):
             return func()
         else:
             return "unauthorized user"
+        app.logger.info("Value of check_user_role %s", check_user_role) # might have to move or amend syntax
     return inner_check
 
 def create_app():
@@ -46,11 +47,6 @@ def create_app():
         app.logger.addHandler(handler)
         
         app.logger.info("Value of login_manager is %s", login_manager)
-        app.logger.info("loading user %s", user_id) #user_id not defined
-        app.logger.info("Responding to request from %s", current_user.id) #Nonetype object has no id
-        
-        app.logger.info("Value of User $s", self.role) #name 'self' is not defined
-        app.logger.info("Value of check_user_role $s", check_user_role)
 
     @login_manager.unauthorized_handler
     def unauthenticated():
@@ -60,6 +56,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
+        app.logger.info("loading user %s", user_id)  #might need to be moved
         return User(user_id)
 
     login_manager.init_app(app)
@@ -76,6 +73,7 @@ def create_app():
                 items.append(item)
         item_view_model = ViewModel(items)
         user_role = "write" if os.getenv('LOGIN_DISABLED') == 'True' else current_user.role
+        app.logger.info("Responding to request from %s", current_user) #might have to move or amend syntax
 
         return render_template('index.html', view_model=item_view_model, chaos_user = user_role)
 
@@ -112,6 +110,8 @@ def create_app():
         
         login_user(user)
         
+        app/logger.info("Logged in new user %s", user_id)
+        
         return redirect('/')
 
     @app.route('/create-todo', methods=['Post'])
@@ -120,6 +120,8 @@ def create_app():
     def create_new_todo():
 
         response = mongo_items_collect.create_mongo_todo_item()
+        
+        app.logger.info("Value of create_mongo_todo_item %s", response) # might have to move or amend syntax
         
         return index()
 
