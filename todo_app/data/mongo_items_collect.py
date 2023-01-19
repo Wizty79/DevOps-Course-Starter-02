@@ -3,8 +3,10 @@ import pymongo
 from bson.objectid import ObjectId
 import requests
 import os
+
 import logging
-from todo_app import app
+from flask import current_app as app
+
 from loggly.handlers import HTTPSHandler
 from logging import Formatter
 

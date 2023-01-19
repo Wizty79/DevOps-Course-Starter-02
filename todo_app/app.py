@@ -51,6 +51,7 @@ def create_app():
     @login_manager.unauthorized_handler
     def unauthenticated():
         redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_TERRA_CLIENT_ID')}"
+        app.logger.info("Value of unauthorized_handler is %s", unauthorized_handler) #?? OK
         return redirect(redirect_url)
 
 
