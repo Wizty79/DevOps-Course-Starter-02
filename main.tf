@@ -49,7 +49,7 @@ resource "azurerm_linux_web_app" "main" {
     "GITHUB_TERRA_CLIENT_ID" = var.GITHUB_TERRA_CLIENT_ID
     "GITHUB_TERRA_CLIENT_SECRET" = var.GITHUB_TERRA_CLIENT_SECRET
     "SECRET_KEY" = var.SECRET_KEY
-
+    "LOGGLY_TOKEN" = var.LOGGLY_TOKEN
   }
 }
 
