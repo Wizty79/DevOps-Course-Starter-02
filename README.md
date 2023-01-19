@@ -265,11 +265,11 @@ For documentation on sending the logs to Loggly using HTTPS, please see the link
 https://documentation.solarwinds.com/en/success_center/loggly/content/admin/python-http.htm?cshid=loggly_python-http
 
 
-To be able to access a logger object from inside the app you can use a suntax of:
+To be able to access a logger object from inside the app you can use a syntax of:
 
 app.logger.info("Value of foo is %s", foo)
 
-For more precise examples please see lines 31, 47, 53, 59, 76 and 113 in the file app.py, please note that the logger statements have been placed in the code blocks have what they are logging are defined. 
+For more precise examples please see lines 31, 47, 53, 59, 76 and 113 in the file app.py and line 31 and 39 from the file mongo_items_collect.py, also please note that the logger statements have been placed in the code blocks where what they are logging are defined. 
 
 
 If you want to set the logging level from a command-line option such as:
