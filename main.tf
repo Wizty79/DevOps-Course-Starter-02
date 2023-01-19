@@ -92,7 +92,7 @@ resource "azurerm_cosmosdb_account" "db" {
     location          = "westus"
     failover_priority = 0
   }
-   lifecycle {  #ask: Jack said to destroy after each gitpod session??
+   lifecycle {
     prevent_destroy = true 
   }
 }
