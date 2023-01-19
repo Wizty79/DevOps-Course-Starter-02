@@ -253,12 +253,25 @@ However before running the apply command you can also run terraform plan to veri
 
 ## Setup for Module 13 ~ more to come
 
+For this section we will be usuing the logger module to log the app activities and send those logs to loggly.
 
-logging tutorial: https://docs.python.org/3/howto/logging.html
+
+For a tutorial on the logging module, please see the link below:
+
+https://docs.python.org/3/howto/logging.html
+
+
+For documentation on sending the logs to loggly using HTTPS, please see the link below:
+
+https://documentation.solarwinds.com/en/success_center/loggly/content/admin/python-http.htm?cshid=loggly_python-http
 
 
 If you want to set the logging level from a command-line option such as:
 
 --log=INFO
+
+But for the purpose of this section it's configured to take the logging level from an variable set in .env
+
+
 
 
