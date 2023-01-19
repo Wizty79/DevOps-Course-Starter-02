@@ -121,8 +121,6 @@ def create_app():
 
         response = mongo_items_collect.create_mongo_todo_item()
         
-        #app.logger.info("Value of create_mongo_todo_item %s", response)
-        
         return index()
 
 
