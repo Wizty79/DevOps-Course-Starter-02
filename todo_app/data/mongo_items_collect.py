@@ -15,6 +15,7 @@ def mongo_connect():
     client = pymongo.MongoClient(os.getenv("PRIMARY_CONNECTION_STRING_DB"))
     db = client.chaostodoSaved
     todos = db.ToDoItems
+    #app.logger.info("Value of mongo_connect is %s", mongo_connect())
     
     return todos
 
@@ -27,6 +28,7 @@ def create_mongo_todo_item():
     todos = mongo_connect()
     
     todos.insert_one({"name": request.form['todo-name'], "status": "To Do"})
+    #app.logger.info("Value of create_mongo_todo_items is %s", create_mongo_todo_item())
 
 def change_mongo_status():
     todos = mongo_connect()
