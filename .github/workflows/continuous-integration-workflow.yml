@@ -68,6 +68,7 @@ jobs:
         TF_VAR_GITHUB_TERRA_CLIENT_ID: '${{ secrets.OAUTH_CLIENT_ID }}'
         TF_VAR_GITHUB_TERRA_CLIENT_SECRET: '${{ secrets.OAUTH_CLIENT_SECRET }}'
         TF_VAR_SECRET_KEY: '${{ secrets.SECRET_KEY_X }}'
+        TF_VAR_LOGGLY_TOKEN: '${{ secrets.LOGGLY_TOKEN }}'
     steps:
     - 
       name: Checkout
