@@ -45,3 +45,7 @@ variable "SECRET_KEY" {
 	sensitive = true
 }
 
+variable "LOGGLY_TOKEN" {
+	type = string
+	sensitive = true
+}
