@@ -32,4 +32,4 @@ def change_mongo_status():
     mongo_id = request.form['todo-id']
     
     change_status = todos.update_one({"_id": mongo_id}, {"$set":{"status": "Done"}}) 
-    app.logger.info("Status change to done for todo with id %s", mongo_id)     
+    app.logger.info("Status change to done for todo with id %s", mongo_id)
