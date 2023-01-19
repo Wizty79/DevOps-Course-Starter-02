@@ -29,6 +29,7 @@ def create_mongo_todo_item():
     
     todos.insert_one({"name": request.form['todo-name'], "status": "To Do"})
     #app.logger.info("Value of create_mongo_todo_items is %s", create_mongo_todo_item())
+    app.logger.info("Value of new item is %s", todos.insert_one) #working?
 
 def change_mongo_status():
     todos = mongo_connect()
