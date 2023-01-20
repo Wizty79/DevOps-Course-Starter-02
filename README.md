@@ -269,14 +269,7 @@ To be able to access a logger object from inside the app you can use a syntax of
 
 app.logger.info("Value of foo is %s", foo)
 
-For more precise examples please see lines 31, 47, 53, 59, 76 and 113 in the file app.py and line 31 and 39 from the file mongo_items_collect.py, also please note that the logger statements have been placed in the code blocks where what they are logging are defined. 
-
-
 If you want to set the logging level from a command-line option such as:
 
 --log=INFO
-
-But for the purpose of this section the logging level is set by an variable in .env
-
-To send the logs to Loggly 
 
