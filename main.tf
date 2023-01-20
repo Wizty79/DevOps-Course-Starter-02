@@ -49,7 +49,7 @@ resource "azurerm_linux_web_app" "main" {
     "GITHUB_TERRA_CLIENT_ID" = var.GITHUB_TERRA_CLIENT_ID
     "GITHUB_TERRA_CLIENT_SECRET" = var.GITHUB_TERRA_CLIENT_SECRET
     "SECRET_KEY" = var.SECRET_KEY
-
+    "LOGGLY_TOKEN" = var.LOGGLY_TOKEN
   }
 }
 
@@ -92,7 +92,7 @@ resource "azurerm_cosmosdb_account" "db" {
     location          = "westus"
     failover_priority = 0
   }
-   lifecycle {  #ask: Jack said to destroy after each gitpod session??
+   lifecycle {
     prevent_destroy = true 
   }
 }

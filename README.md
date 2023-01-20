@@ -251,3 +251,25 @@ As mentioned in the linked guide you can run terraform init Initialize the proje
 
 However before running the apply command you can also run terraform plan to verify that the installation. 
 
+## Module 13 ~ Generating extra Logs and send to Loggly
+
+For this section we will be usuing the logger module to log the app activities and send those logs to loggly.
+
+For a tutorial on the logging module, please see the link below:
+
+https://docs.python.org/3/howto/logging.html
+
+
+For documentation on sending the logs to Loggly using HTTPS, please see the link below:
+
+https://documentation.solarwinds.com/en/success_center/loggly/content/admin/python-http.htm?cshid=loggly_python-http
+
+
+To be able to access a logger object from inside the app you can use a syntax of:
+
+app.logger.info("Value of foo is %s", foo)
+
+If you want to set the logging level from a command-line option such as:
+
+--log=INFO
+

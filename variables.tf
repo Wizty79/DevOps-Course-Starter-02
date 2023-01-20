@@ -16,7 +16,7 @@ variable "REDIRECT_URL" {
 variable "USERNAME" {
 	type = string
 	sensitive = true
-	default = "chaos-cosmos-db" # database name? 
+	default = "chaos-cosmos-db"
 }
 
 variable "DOCKER_TOKEN" {
@@ -45,3 +45,7 @@ variable "SECRET_KEY" {
 	sensitive = true
 }
 
+variable "LOGGLY_TOKEN" {
+	type = string
+	sensitive = true
+}

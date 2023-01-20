@@ -9,6 +9,10 @@ from flask_login import LoginManager, login_required, UserMixin, login_user, cur
 import flask
 from functools import wraps
 
+import logging
+from loggly.handlers import HTTPSHandler
+from logging import Formatter
+
 class User(UserMixin):
         def __init__(self, id):
             role = ["read","write"]
@@ -24,6 +28,7 @@ def check_user_role(func):
         if os.getenv('LOGIN_DISABLED') == 'True' or current_user.role == "write":
             return func()
         else:
+            app.logger.warn("User trying to access unauthorized function")
             return "unauthorized user"
     return inner_check
 
@@ -31,17 +36,27 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config())
     app.config['LOGIN_DISABLED'] = os.getenv('LOGIN_DISABLED') == 'True'
-
+    
     login_manager = LoginManager()
+    
+    if app.config['LOGGLY_TOKEN'] is not None:
+        handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo_app')
+        handler.setFormatter(
+            Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+        )
+        app.logger.addHandler(handler)
+
 
     @login_manager.unauthorized_handler
     def unauthenticated():
         redirect_url = f"https://github.com/login/oauth/authorize?client_id={os.getenv('GITHUB_TERRA_CLIENT_ID')}"
+        app.logger.info("Unknown user being redirected to Github")
         return redirect(redirect_url)
 
 
     @login_manager.user_loader
     def load_user(user_id):
+        app.logger.info("loading user %s", user_id)
         return User(user_id)
 
     login_manager.init_app(app)
@@ -58,6 +73,7 @@ def create_app():
                 items.append(item)
         item_view_model = ViewModel(items)
         user_role = "write" if os.getenv('LOGIN_DISABLED') == 'True' else current_user.role
+        app.logger.info("Responding to request from user with role %s", user_role)
 
         return render_template('index.html', view_model=item_view_model, chaos_user = user_role)
 
@@ -94,6 +110,8 @@ def create_app():
         
         login_user(user)
         
+        app.logger.info("Logged in new user %s", user_id)
+        
         return redirect('/')
 
     @app.route('/create-todo', methods=['Post'])
@@ -114,10 +132,8 @@ def create_app():
         response = mongo_items_collect.change_mongo_status()
 
         return index()
+    
     return app
-
-
-
 
 
 
