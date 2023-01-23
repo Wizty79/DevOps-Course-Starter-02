@@ -275,8 +275,24 @@ If you want to set the logging level from a command-line option such as:
 
 ## Module 14 ~ more to come
 
-branch setup 
+installing kubectl on Linux: 
 
+Download the latest release with the command:
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+For further more detailed instructions plkease see below: 
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
+Verify kubectl configuration:
+
+In order for kubectl to find and access a Kubernetes cluster, it needs a kubeconfig file, which is created automatically when you create a cluster using kube-up.sh or successfully deploy a Minikube cluster. By default, kubectl configuration is located at ~/.kube/config.
+
+Check that kubectl is properly configured by getting the cluster state:
+
+kubectl cluster-info
 
 
 
