@@ -281,7 +281,7 @@ Download the latest release with the command:
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
-For further more detailed instructions plkease see below: 
+For further more detailed instructions please see below: 
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
@@ -295,7 +295,15 @@ Check that kubectl is properly configured by getting the cluster state:
 kubectl cluster-info
 
 
+Install Minikube:
 
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+And for more detailed information please follow the link below:
+
+https://minikube.sigs.k8s.io/docs/start/
 
 
 
