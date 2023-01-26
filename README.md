@@ -295,15 +295,34 @@ Check that kubectl is properly configured by getting the cluster state:
 kubectl cluster-info
 
 
-Install Minikube:
+Install Minikube using binary download (when using Gitpod this gave errors due to file size, so would not reccomend for Gidpod users) :
 
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+Installing Minikube using Debian package:
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+
+sudo dpkg -i minikube_latest_amd64.deb
+
+
+Installing Minikube using RPM package:
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+
+sudo rpm -Uvh minikube-latest.x86_64.rpm
+
 
 And for more detailed information please follow the link below:
 
 https://minikube.sigs.k8s.io/docs/start/
 
 
+Errors seen after running minikube start:
 
+Failed to start docker container. Running "minikube delete" may fix it: creating host: create: provisioning: get ssh host-port: unable to inspect a not running container to get SSH port
+
+❌  Exiting due to GUEST_PROVISION_CONTAINER_EXITED: Docker container exited prematurely after it was created, consider investigating Docker's performance/health.
