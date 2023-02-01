@@ -277,11 +277,7 @@ If you want to set the logging level from a command-line option such as:
 
 installing kubectl on Linux: 
 
-Download the latest release with the command:
-
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
-For further more detailed instructions please see below: 
+For a full set of instructions and commands,please see below: 
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
