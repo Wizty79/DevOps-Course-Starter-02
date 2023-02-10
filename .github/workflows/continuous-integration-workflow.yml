@@ -80,3 +80,6 @@ jobs:
     - name: 'Run Azure CLI commands'
       run: curl -dH -X POST --fail "$(terraform output -raw webhook)"
 
+
+
+
